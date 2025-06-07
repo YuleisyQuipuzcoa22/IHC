@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nombre": "Ana",
+    "correo": "ana@ejemplo.com",
+    "contraseña": "1234",
+    "tipo_usuario": "cliente"
+  },
+  {
+    "id": 2,
+    "nombre": "Carlos",
+    "correo": "carlos@ejemplo.com",
+    "contraseña": "admin123",
+    "tipo_usuario": "admin"
+  }
+]

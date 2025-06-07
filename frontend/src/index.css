@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Signika', sans-serif;
+}
+
+.spicy-text {
+  font-family: 'Spicy Rice', cursive;
+}
+
+.dancing-text {
+  font-family: "Dancing Script", cursive;  
+}
+
+
+.lilita-text {
+  font-family: 'Lilita One', sans-serif; 
+}
+
