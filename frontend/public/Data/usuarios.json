@@ -12,5 +12,12 @@
     "correo": "carlos@ejemplo.com",
     "contraseña": "admin123",
     "tipo_usuario": "admin"
+  },
+   {
+    "id": 3,
+    "nombre": "Flavio",
+    "correo": "flavio@dulcinelly.com",
+    "contraseña": "flavio123",
+    "tipo_usuario": "asistente"
   }
 ]
