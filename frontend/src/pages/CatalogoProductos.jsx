@@ -32,7 +32,7 @@ function CatalogoProductos() {
           medida={medida}
           setMedida={setMedida}
         />
-        <div className="w-auto lg:w-full max-h-[900px] overflow-y grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="w-auto lg:w-full overflow-y grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredProducts.map((product) => (
             <div key={product.id} className="w-full">
               <CardProduct

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 
 function Filtros({ categoria, setCategoria, presentacion, setPresentacion, medida, setMedida }) {
-  // JSON único para filtros
-  const filtrosJson = {
+  
+  const filtrosProducto = {
     categorias: ["Pasteles", "Bocaditos", "Bebidas"],
     tipoPresentacion: ["Porción", "Unidad"],
     unidadMedida: ["Kilogramo", "Litro"]
   };
 
   // Convertimos a formato [{nombre: ...}] para que sea compatible con renderFiltro
-  const categorias = filtrosJson.categorias.map(nombre => ({ nombre }));
-  const tipo_presentacion = filtrosJson.tipoPresentacion.map(nombre => ({ nombre }));
-  const unidad_medida = filtrosJson.unidadMedida.map(nombre => ({ nombre }));
+  const categorias = filtrosProducto.categorias.map(nombre => ({ nombre }));
+  const tipo_presentacion = filtrosProducto.tipoPresentacion.map(nombre => ({ nombre }));
+  const unidad_medida = filtrosProducto.unidadMedida.map(nombre => ({ nombre }));
 
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 
