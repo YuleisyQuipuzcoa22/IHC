@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation,matchPath } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import NotFoundPage from "./pages/NotFound";
@@ -9,33 +9,38 @@ import Admin from "./pages/Admin";
 import Cotizacion from './pages/PedidoCotizado'
 import Catalogo from './pages/CatalogoProductos'
 import Pago from "./pages/Pago";
-import Carrito from './pages/CarritoCompras'
+import Carrito from './pages/CarritoCompras';
+import ProductoIndividual from "./pages/ProductoIndividual";
+
 
 function App() {
   const location = useLocation();
 
   // Declaramos todas las rutas válidas
   const rutasConocidas = [
-    { path: "/", element: <MainPage /> },
-    { path: "/producto", element: <Producto /> },
-    { path: "/login", element: <Login /> },
-    { path: "/admin", element: <Admin /> },
-    { path: "/pedido/cotizacion", element: <Cotizacion/> },
-    { path: "/catalogo-productos", element: <Catalogo/> },
-    { path: "/pago", element: <Pago /> },
-    { path: "/carrito", element: <Carrito /> },
+  { path: "/", element: <MainPage /> },
+  { path: "/producto", element: <Producto /> },
+  { path: "/login", element: <Login /> },
+  { path: "/admin", element: <Admin /> },
+  { path: "/pedido/cotizacion", element: <Cotizacion/> },
+  { path: "/catalogo-productos", element: <Catalogo/> },
+  { path: "/pago", element: <Pago /> },
+  { path: "/carrito", element: <Carrito /> },
+  { path: "/producto/:id", element: <ProductoIndividual  /> },
+];
+const rutasValidas = rutasConocidas.map((ruta) => ruta.path);
 
-  ];
 
   //array solo con los paths
-  const rutasValidas = rutasConocidas.map((r) => r.path);
+ const isRutaValida = rutasValidas.some((ruta) => matchPath(ruta, location.pathname));
 
-  //Detectamos si estamos en una ruta válida o no
-  const isNotFound = !rutasValidas.includes(location.pathname);
+
+  
 
   // 4. Definimos si ocultar el layout
-  const ocultarLayout =
-    ["/login", "/register"].includes(location.pathname) || isNotFound;
+ const ocultarLayout =
+  ["/login", "/register"].includes(location.pathname) || !isRutaValida;
+
 
   return (
     <div className="min-h-screen flex flex-col">

@@ -1,33 +1,21 @@
 import React, { useEffect, useState } from "react";
 
-function Filtros() {
-  // Datos locales de ejemplo (antes venían de store)
-  const categorias = [
-    { nombre: "Electrónica" },
-    { nombre: "Ropa" },
-    { nombre: "Hogar" },
-  ];
+function Filtros({ categoria, setCategoria, presentacion, setPresentacion, medida, setMedida }) {
+  // JSON único para filtros
+  const filtrosJson = {
+    categorias: ["Pasteles", "Bocaditos", "Bebidas"],
+    tipoPresentacion: ["Porción", "Unidad"],
+    unidadMedida: ["Kilogramo", "Litro"]
+  };
 
-  const tipo_presentacion = [
-    { nombre: "Caja" },
-    { nombre: "Bolsa" },
-    { nombre: "Unidad" },
-  ];
-
-  const unidad_medida = [
-    { nombre: "Kilogramo" },
-    { nombre: "Litro" },
-    { nombre: "Metro" },
-  ];
+  // Convertimos a formato [{nombre: ...}] para que sea compatible con renderFiltro
+  const categorias = filtrosJson.categorias.map(nombre => ({ nombre }));
+  const tipo_presentacion = filtrosJson.tipoPresentacion.map(nombre => ({ nombre }));
+  const unidad_medida = filtrosJson.unidadMedida.map(nombre => ({ nombre }));
 
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 
-  // Estados separados para cada filtro
-  const [categoria, setCategoria] = useState('');
-  const [presentacion, setPresentacion] = useState('');
-  const [medida, setMedida] = useState('');
-
-  // Detecta cambios en el tamaño de la pantalla
+ 
   useEffect(() => {
     const handleResize = () => {
       setIsLargeScreen(window.innerWidth >= 1024);
@@ -36,17 +24,15 @@ function Filtros() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Funciones para manejar cambios individuales
-  const handleCategoriaChange = (valor) => setCategoria(valor);
-  const handlePresentacionChange = (valor) => setPresentacion(valor);
-  const handleMedidaChange = (valor) => setMedida(valor);
+ const handleCategoriaChange = (valor) => setCategoria(valor);
+const handlePresentacionChange = (valor) => setPresentacion(valor);
+const handleMedidaChange = (valor) => setMedida(valor);
 
-  // Funciones para limpiar filtros individuales
+
   const limpiarCategoria = () => setCategoria('');
   const limpiarPresentacion = () => setPresentacion('');
   const limpiarMedida = () => setMedida('');
 
-  // Función para limpiar todos los filtros
   const limpiarTodosFiltros = () => {
     setCategoria('');
     setPresentacion('');
@@ -119,10 +105,10 @@ function Filtros() {
   const filtrosActivos = [categoria, presentacion, medida].filter(Boolean);
 
   return (
-    <aside className={`
+    <aside className={` 
       w-full bg-white rounded-xl shadow-lg border border-gray-100 p-4
       ${isLargeScreen 
-        ? 'lg:w-min lg:h-max flex flex-col gap-4' 
+        ? 'lg:min-w-[270px] lg:max-w-[270px] flex flex-col gap-4' 
         : 'flex flex-col space-y-4'
       }
     `}>
@@ -131,6 +117,14 @@ function Filtros() {
           <div className="w-2 h-2 bg-amber-600 rounded-full"></div>
           Filtros
         </h2>
+        {(categoria || presentacion || medida) && (
+          <button 
+            onClick={limpiarTodosFiltros} 
+            className="text-sm text-red-600 hover:text-red-800"
+          >
+            Limpiar todos
+          </button>
+        )}
       </div>
       
       <div className={`${isLargeScreen ? 'space-y-6' : 'grid grid-cols-1 gap-4'}`}>

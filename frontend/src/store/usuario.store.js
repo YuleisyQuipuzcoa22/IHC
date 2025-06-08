@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import usuarios from "../data/usuarios.json";
 
 export const useUserStore = create((set) => ({
   user: JSON.parse(localStorage.getItem("user")) || null,
@@ -6,12 +7,8 @@ export const useUserStore = create((set) => ({
   setUser: (userData) => set({ user: userData }),
 
   login: async (values) => {
-    try {
-      // Carga usuarios desde archivo JSON
-      const response = await fetch("/Data/usuarios.json");
-; 
-      const usuarios = await response.json();
-
+    try {   
+    
       // Busca el usuario
       const usuarioEncontrado = usuarios.find(
         (u) => u.correo === values.correo && u.contraseña === values.contraseña

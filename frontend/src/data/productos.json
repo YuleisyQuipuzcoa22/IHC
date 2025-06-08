@@ -1,0 +1,47 @@
+[
+    {
+    "id": 1,
+    "imagen": "/assets/torta_chocolate.png.png",
+    "titulo": "Torta de chocolate 1 kg",
+    "tipoPresentacion": "Unidad",
+    "precio": 70.5,
+    "categoria": "Pasteles",
+    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5
+    },
+    {
+    "id": 2,
+    "imagen": "/assets/torta_chocolate.png.png",
+    "titulo": "Café moka",
+    "tipoPresentacion": "Unidad",
+    "precio": 6,
+     "categoria": "Bebidas",
+    "unidadMedida": "Litro","valorUnidadMedida": 1.5
+    },
+    {
+    "id": 3,
+    "imagen": "/assets/torta_chocolate.png.png",
+    "titulo": "Torta de crocante de duraszo",
+    "tipoPresentacion": "Porción",
+    "precio": 70.5,
+     "categoria": "Pasteles",
+    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5
+    },
+    {
+    "id": 4,
+    "imagen": "/src/assets/torta_chocolate.png.png",
+    "titulo": "Torta crocante de guanábana",
+    "tipoPresentacion": "Porción",
+    "precio": 6.5,
+     "categoria": "Pasteles",
+    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5
+    },   
+    {
+    "id": 4,
+    "imagen": "/src/assets/torta_chocolate.png.png",
+    "titulo": "Empanada",
+    "tipoPresentacion": "Porción",
+    "precio": 6.5,
+     "categoria": "Bocaditos",
+    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5
+    }    
+]
