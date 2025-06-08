@@ -22,7 +22,7 @@ export const useUserStore = create((set) => ({
         localStorage.setItem("user", JSON.stringify(usuarioEncontrado));
         return usuarioEncontrado;
       } else {
-        alert("Usuario o contraseña incorrectos (simulado)");
+        alert("Usuario o contraseña incorrectos");
         return null;
       }
     } catch (error) {

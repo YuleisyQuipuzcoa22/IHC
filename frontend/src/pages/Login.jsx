@@ -33,13 +33,13 @@ function Login() {
           navigate("/login");
       }
     }
-    // Si no encontró usuario, no hace nada (alert ya está en login)
+    
   };
 
   return (
     <div
-      className="h-screen flex items-center justify-center font-medium"
-      style={{ backgroundColor: "#E8464D" }}
+      className="h-screen flex items-center justify-center font-medium bg-[#E8464D]"
+      
     >
       <div className="bg-white p-10 rounded-4xl shadow-lg w-96">
         <h2 className="text-2xl text-center text-gray-800 mb-6">
@@ -48,8 +48,8 @@ function Login() {
         <div className="flex flex-col items-center">
           <img src={logo} alt="Logo" className="h-20 w-auto" />
           <h2
-            className="text-[14px] text-center p-2"
-            style={{ color: "#C85E5E" }}
+            className="text-[14px] text-center p-2 text-[#C85E5E]"
+            
           >
             Bienvenido a Dulcinelly
           </h2>
@@ -67,12 +67,8 @@ function Login() {
                 name="correo"
                 onChange={handleChange}
                 value={values.correo}
-                className="text-[#57595c] font-medium rounded-md p-3 outline-none"
-                style={{
-                  backgroundColor: "#fff",
-                  borderRadius: "10px",
-                  fontWeight: 500,
-                }}
+                className="text-[#57595c] font-medium rounded-md p-3 outline-none bg-[#fff] rounded-[10px]"
+                
               />
               <Input
                 type="password"
@@ -80,12 +76,7 @@ function Login() {
                 name="contraseña"
                 onChange={handleChange}
                 value={values.contraseña}
-                className="text-[#57595c] font-medium rounded-md p-3 outline-none"
-                style={{
-                  backgroundColor: "#fff",
-                  borderRadius: "10px",
-                  fontWeight: 500,
-                }}
+                className="text-[#57595c] font-medium rounded-md p-3 outline-none bg-[#fff] rounded-[10px]"                
               />
 
               <Button
