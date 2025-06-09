@@ -14,18 +14,17 @@ function ProductoIndividual() {
   const lensRef = useRef(null);
 
   const incrementarCantidad = (e) => {
-    e.stopPropagation();
-    setCantidad(cantidad + 1);
-    actualizarCantidad(producto.id, cantidad + 1);
-  };
+  e.stopPropagation();
+  setCantidad((prev) => prev + 1);
+};
 
-  const disminuirCantidad = (e) => {
-    e.stopPropagation();
-    if (cantidad > 1) {
-      setCantidad(cantidad - 1);
-      actualizarCantidad(producto.id, cantidad - 1);
-    }
-  };
+const disminuirCantidad = (e) => {
+  e.stopPropagation();
+  if (cantidad > 1) {
+    setCantidad((prev) => prev - 1);
+  }
+};
+
 
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();

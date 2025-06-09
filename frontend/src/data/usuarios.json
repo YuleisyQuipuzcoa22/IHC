@@ -1,7 +1,8 @@
 [
   {
     "id": 1,
-    "nombre": "Ana",
+    "nombre": "Anaaaa",
+    "apellidos": "Sánchez",
     "correo": "ana@ejemplo.com",
     "contraseña": "1234",
     "tipo_usuario": "cliente"
@@ -9,6 +10,7 @@
   {
     "id": 2,
     "nombre": "Carlos",
+    "apellidos": "Martínez",
     "correo": "carlos@ejemplo.com",
     "contraseña": "admin123",
     "tipo_usuario": "admin"
@@ -16,6 +18,7 @@
    {
     "id": 3,
     "nombre": "Flavio",
+    "apellidos": "Martínez",
     "correo": "flavio@dulcinelly.com",
     "contraseña": "flavio123",
     "tipo_usuario": "asistente"
