@@ -88,7 +88,7 @@ function Header() {
             <LinkNavPrincipal to="/catalogo-productos">
               PRODUCTOS
             </LinkNavPrincipal>
-            <LinkNavPrincipal to="/contactanos">CONTÁCTANOS</LinkNavPrincipal>
+            <LinkNavPrincipal to="/contact">CONTÁCTANOS</LinkNavPrincipal>
           </div>
 
           {/* icono carrito + usuario */}
@@ -233,7 +233,7 @@ function Header() {
               PRODUCTOS
             </LinkNavBurger>
             <LinkNavBurger
-              to="/contactanos"
+              to="/contact"
               onClick={() => setMobileMenuOpen(false)}
             >
               CONTÁCTANOS

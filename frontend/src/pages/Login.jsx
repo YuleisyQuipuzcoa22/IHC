@@ -100,7 +100,7 @@ function Login() {
               <Button
                 type="button"
                 label="Registrarse"
-                onClick={() => navigate("/register")}
+                onClick={() => navigate("/registrarcliente")}
                 transparent={true}
                 noBorder={true}
                 textColor="#000000"
