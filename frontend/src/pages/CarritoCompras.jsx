@@ -9,37 +9,7 @@ const Carrito = () => {
   const navigate = useNavigate();
   const { productos, setProductos, actualizarCantidad, eliminarProducto } =
     useCarritoStore();
-  useEffect(() => {
-    setProductos([
-      {
-        id: 1,
-        imagen: "/src/assets/torta_chocolate.png.png",
-        titulo: "Torta de chocolate 1 kg",
-        unidad: "Unidad",
-        cantidad: 1,
-        precio: 70.5,
-        enlaceProducto: "/catalogo-productos",
-      },
-      {
-        id: 2,
-        imagen: "/src/assets/torta_chocolate.png.png",
-        titulo: "Torta tres leches ",
-        unidad: "Porcion",
-        cantidad: 3,
-        precio: 6.0,
-        enlaceProducto: "/catalogo-productos",
-      },
-      {
-        id: 3,
-        imagen: "/src/assets/torta_chocolate.png.png",
-        titulo: "Torta tres leches ",
-        unidad: "Porcion",
-        cantidad: 3,
-        precio: 6.0,
-        enlaceProducto: "/catalogo-productos",
-      },
-    ]);
-  }, [setProductos]);
+ 
 
   /*
   const eliminarProductoCarrito = (id) => {

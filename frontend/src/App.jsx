@@ -11,6 +11,7 @@ import Catalogo from './pages/CatalogoProductos'
 import Pago from "./pages/Pago";
 import Carrito from './pages/CarritoCompras';
 import ProductoIndividual from "./pages/ProductoIndividual";
+import CompraExitosa from "./pages/CompraExitosa";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
   { path: "/pago", element: <Pago /> },
   { path: "/carrito", element: <Carrito /> },
   { path: "/producto/:id", element: <ProductoIndividual  /> },
+  { path: "/compra-exitosa", element: <CompraExitosa /> },
 ];
 const rutasValidas = rutasConocidas.map((ruta) => ruta.path);
 
