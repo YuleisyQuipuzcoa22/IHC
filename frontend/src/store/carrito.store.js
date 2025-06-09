@@ -8,19 +8,19 @@ export const useCarritoStore = create((set, get) => ({
 
 
     // Agregar productos desde el catálogo 
-    agregarProducto: (producto) => {
+    agregarProducto: (producto, cantidad = 1) => {
         const productosActuales = get().productos;
         const existente = productosActuales.find((p) => p.id === producto.id);
         if (existente) {
             set({
                 productos: productosActuales.map((p) =>
                     p.id === producto.id
-                        ? { ...p, cantidad: p.cantidad + 1 }
+                        ? { ...p, cantidad: p.cantidad + cantidad }
                         : p
                 ),
             });
         } else {
-            set({ productos: [...productosActuales, { ...producto, cantidad: 1 }] });
+            set({ productos: [...productosActuales, { ...producto, cantidad }] });
         }
     },
     eliminarProducto: (id) =>

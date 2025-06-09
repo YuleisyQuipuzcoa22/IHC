@@ -3,24 +3,10 @@ import CheckoutItem from "../components/CheckoutItem";
 import CheckoutForm from "../components/CheckoutForm";
 import OrderSummary from "../components/OrderSummary";
 import PaymentMethods from "../components/PaymentMethods";
+import { useCarritoStore } from "../store/carrito.store";
 
 const Pago = () => {
-    const productos =
-    [{
-        imagen: '/src/assets/torta_chocolate.png.png',
-        titulo: 'Torta de chocolate 1 kg',
-        unidad: 'Unidad',
-        cantidad: 1,
-        precio: 6.0,
-    },
-    {
-        imagen: '/src/assets/torta_chocolate.png.png',
-        titulo: 'Torta tres leches ',
-        unidad: 'Porcion',
-        cantidad: 3,
-        precio: 6.0,   
-    },
-    ];
+  const productos = useCarritoStore((state) => state.productos);
 
 const subtotal = productos.reduce((acc,item)=> acc + item.precio * item.cantidad, 0)
   return (
@@ -38,6 +24,7 @@ const subtotal = productos.reduce((acc,item)=> acc + item.precio * item.cantidad
         <CheckoutForm />
         <OrderSummary subtotal={subtotal} />
         <PaymentMethods />
+        
       </div>
     </div>
   </div>

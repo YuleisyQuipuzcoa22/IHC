@@ -9,7 +9,7 @@ function ProductoIndividual() {
   const { id } = useParams(); // Obtener el ID de la URL
   const producto = productosData.find(p => p.id.toString() === id);
 
-  const { actualizarCantidad } = useCarritoStore();
+  const { agregarProducto, actualizarCantidad } = useCarritoStore();
   const [cantidad, setCantidad] = useState(1);
   const lensRef = useRef(null);
 
@@ -42,6 +42,9 @@ function ProductoIndividual() {
     lensRef.current.style.display = "none";
   };
 
+  const handleAgregarAlCarrito = () => {
+    agregarProducto(producto, cantidad); // <-- Agrega el producto y la cantidad al carrito
+  };
   if (!producto) return <p className="text-center p-10">Producto no encontrado</p>;
 
   return (
@@ -92,6 +95,7 @@ function ProductoIndividual() {
                 color="#E8464D"
                 hoverColor="#ff4c4c"
                 hoverTextColor="false"
+                onClick={handleAgregarAlCarrito}
               />
             </div>
           </div>
