@@ -12,6 +12,7 @@ import {
   FaShoppingBag,
   FaNetworkWired,
 } from "react-icons/fa"; //prueba
+
 import { FiMenu } from "react-icons/fi";
 import { useState } from "react"; //prueba
 import LinkNavBurger from "./LinkNavBurger";
@@ -76,9 +77,9 @@ function Header() {
     >
       <nav className="container mx-auto flex items-center justify-between relative">
         {/* Logo */}
-        <div className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img src={logo} alt="Logo" className="h-20 w-auto object-contain" />
-        </div>
+        </Link>
 
         {/* contenedor de todo menos logo */}
         <div className="flex items-center ml-5">

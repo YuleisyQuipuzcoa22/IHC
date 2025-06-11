@@ -9,17 +9,26 @@ const PaymentMethods =()=>{
     const [modalAbierto, setModalAbierto] = React.useState(false);
     const [tipoModal, setTipoModal] = React.useState("");
     const [metodoSeleccionado, setMetodoSeleccionado] = React.useState(null);
-    
+    const [pagoExitoso, setPagoExitoso] = React.useState(false);
 
     const handlePagar = () => {
         if (!metodoSeleccionado) {
             alert("Por favor, selecciona un método de pago.");
             return;
         }
+        if (metodoSeleccionado === "bcp") {
+            alert("Por favor, completa el pago en la aplicación BCP.");
+            return;
+        }
         navigate("/compra-exitosa");
         
     };
 
+    const handlePagoExitoso = () => {
+        setPagoExitoso(true);
+        setModalAbierto(false);
+        navigate("/compra-exitosa");
+    };
     const abrirModal = (tipo) => {
         setTipoModal(tipo);
         setModalAbierto(true);
@@ -75,7 +84,7 @@ const PaymentMethods =()=>{
                     ×
                     </button>
                     {tipoModal === "yape" && <YapeModal onClose={cerrarModal} />}
-                    {tipoModal === "bcp" && <BCPModal onClose={cerrarModal} />}
+                    {tipoModal === "bcp" && <BCPModal onClose={cerrarModal} onPagoExitoso={handlePagoExitoso} />}
                     </div>
                 </div>
             )}
