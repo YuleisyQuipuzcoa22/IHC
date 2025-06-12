@@ -39,7 +39,4 @@ export const useCarritoStore = create((set, get) => ({
 
 
     limpiarCarrito: () => set({ productos: [] }),
-
-
-
 }));

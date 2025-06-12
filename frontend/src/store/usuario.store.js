@@ -6,26 +6,18 @@ export const useUserStore = create((set) => ({
 
   setUser: (userData) => set({ user: userData }),
 
-  login: async (values) => {
-    try {   
-    
-      // Busca el usuario
-      const usuarioEncontrado = usuarios.find(
-        (u) => u.correo === values.correo && u.contraseña === values.contraseña
-      );
-
-      if (usuarioEncontrado) {
-        set({ user: usuarioEncontrado });
-        localStorage.setItem("user", JSON.stringify(usuarioEncontrado));
-        return usuarioEncontrado;
-      } else {
-        alert("Usuario o contraseña incorrectos");
-        return null;
-      }
-    } catch (error) {
-      alert("Error al cargar usuarios");
+  login: async ({ correo, contraseña }) => {
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const usuario = usuarios.find(
+      (u) => u.correo === correo && u.contraseña === contraseña
+    );
+    if (!usuario) {
+      alert("Correo o contraseña incorrectos.");
       return null;
     }
+    set({ user: usuario });
+    localStorage.setItem("user", JSON.stringify(usuario));
+    return usuario;
   },
 
   logout: async () => {
