@@ -6,7 +6,8 @@
     "tipoPresentacion": "Unidad",
     "precio": 70.5,
     "categoria": "Pasteles",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5
+    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
+     "descripcion": "Deliciosa torta de chocolate elaborada con cacao puro, rellena y cubierta con ganache de chocolate. Perfecta para los amantes del chocolate."
     },
     {
     "id": 2,
@@ -15,33 +16,37 @@
     "tipoPresentacion": "Unidad",
     "precio": 6,
      "categoria": "Bebidas",
-    "unidadMedida": "Litro","valorUnidadMedida": 1.5
+    "unidadMedida": "Litro","valorUnidadMedida": 1.5,
+     "descripcion": "Deliciosa torta de chocolate elaborada con cacao puro, rellena y cubierta con ganache de chocolate. Perfecta para los amantes del chocolate."
     },
     {
     "id": 3,
     "imagen": "/assets/torta_chocolate.png.png",
-    "titulo": "Torta de crocante de duraszo",
+    "titulo": "Torta de crocante de fresa",
     "tipoPresentacion": "Porción",
     "precio": 70.5,
      "categoria": "Pasteles",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5
+    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
+     "descripcion": "Deliciosa torta de chocolate elaborada con cacao puro, rellena y cubierta con ganache de chocolate. Perfecta para los amantes del chocolate."
     },
     {
     "id": 4,
     "imagen": "/src/assets/torta_chocolate.png.png",
-    "titulo": "Torta crocante de guanábana",
+    "titulo": "Torta tres leches",
     "tipoPresentacion": "Porción",
     "precio": 6.5,
      "categoria": "Pasteles",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5
+    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
+     "descripcion": "Deliciosa torta de chocolate elaborada con cacao puro, rellena y cubierta con ganache de chocolate. Perfecta para los amantes del chocolate."
     },   
     {
-    "id": 4,
+    "id": 5,
     "imagen": "/src/assets/torta_chocolate.png.png",
     "titulo": "Empanada",
     "tipoPresentacion": "Porción",
     "precio": 6.5,
      "categoria": "Bocaditos",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5
+    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
+     "descripcion": "Deliciosa torta de chocolate elaborada con cacao puro, rellena y cubierta con ganache de chocolate. Perfecta para los amantes del chocolate."
     }    
 ]

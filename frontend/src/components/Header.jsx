@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Boton from "./Button";
 import logo from "../assets/logodulcinelly.png";
-import { useUserStore } from "../store/usuario.store";
+
 import { useCarritoStore } from "../store/carrito.store";
 import LinkMenuUsuario from "./LinkMenuUsuario";
 import LinkNavPrincipal from "./LinkNavPrincipal";
@@ -19,7 +19,8 @@ import LinkNavBurger from "./LinkNavBurger";
 
 function Header() {
   const navigate = useNavigate();
-  const { user, setUser, logout } = useUserStore();
+  const user = JSON.parse(localStorage.getItem("usuarioLogueado"))
+
 
   //prueba carrito
   const { productos, getTotalProductos } = useCarritoStore();
@@ -59,17 +60,11 @@ function Header() {
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
-  const handleLogout = async () => {
-    console.log("Cerrando sesión...");
-    await logout();
-    navigate("/");
+  const handleLogout = () => {
+    localStorage.removeItem("usuarioLogueado");
+    navigate("/login");
   };
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser && !user) {
-      setUser(JSON.parse(storedUser));
-    }
-  }, []);
+ 
   return (
     <header
       className=" text-white p-3 shadow px-15"
@@ -136,7 +131,7 @@ function Header() {
                 {/* Menú desplegable usuario */}
                 {isDropdownOpen && (
                   <div className="z-50 absolute right-3 mt-2 w-48 bg-white rounded-md shadow-lg text-[#000000]">
-                     {console.log('botón visible')}
+                     
                     {user.tipo_usuario === "cliente" && (
                       <>
                         <LinkMenuUsuario
@@ -183,6 +178,7 @@ function Header() {
                       color="#ff1100"
                       textColor="#000000"
                       onClick={handleLogout}
+                      
                       hoverColor="#000000"
                       hoverTextColor="#FFFFFF"
                       className="font-semibold  w-full h-12 rounded-sm"

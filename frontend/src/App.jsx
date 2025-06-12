@@ -12,8 +12,6 @@ import Pago from "./pages/Pago";
 import Carrito from './pages/CarritoCompras';
 import ProductoIndividual from "./pages/ProductoIndividual";
 import CompraExitosa from "./pages/CompraExitosa";
-
-import Carrito from './pages/CarritoCompras';
 import RegistrarCliente from "./pages/RegistrarCliente";
 import Contact from "./pages/Contact"; 
 
@@ -34,7 +32,7 @@ function App() {
   { path: "/producto/:id", element: <ProductoIndividual  /> },
   { path: "/compra-exitosa", element: <CompraExitosa /> },
   { path: "/registrarcliente", element: <RegistrarCliente /> },
-    { path: "/contact", element: <Contact /> },
+  { path: "/contact", element: <Contact /> },
 ];
 const rutasValidas = rutasConocidas.map((ruta) => ruta.path);
 
@@ -49,7 +47,7 @@ const rutasValidas = rutasConocidas.map((ruta) => ruta.path);
 
   // 4. Definimos si ocultar el layout
   const ocultarLayout =
-    ["/login", "/registrarcliente"].includes(location.pathname) || isNotFound;
+    ["/login", "/registrarcliente"].includes(location.pathname) || !isRutaValida;;
 
   return (
     <div className="min-h-screen flex flex-col">
