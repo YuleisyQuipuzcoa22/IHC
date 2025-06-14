@@ -9,9 +9,11 @@ function CatalogoProductos() {
   const [presentacion, setPresentacion] = useState("");
   const [medida, setMedida] = useState("");
 
-  useEffect(() => {
-    setProducts(productosData);
-  }, []);
+ useEffect(() => {
+  const productosGuardados = JSON.parse(localStorage.getItem("productos")) || [];
+  setProducts(productosGuardados);
+}, []);
+
   const filteredProducts = products.filter((product) => {
     const matchCategoria = categoria ? product.categoria === categoria : true;
     const matchPresentacion = presentacion

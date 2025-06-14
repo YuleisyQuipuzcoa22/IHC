@@ -53,9 +53,7 @@ const CheckoutForm = () => {
 
         <button
           className={`transition duration-300 ease-in-out hover:scale-115 px-4 py-2 border rounded ${
-            modoEntrega === "recojo"
-              ? "bg-[#FAB5C1]"
-              : "border-gray-400 shadow"
+            modoEntrega === "recojo" ? "bg-[#FAB5C1]" : "border-gray-400 shadow"
           }`}
           onClick={() => setModoEntrega("recojo")}
         >
@@ -162,7 +160,9 @@ const CheckoutForm = () => {
             onChange={handleChange}
           >
             <option value="">Seleccione una sede</option>
-            <option value="Sede Central - Trujillo">Sede Central - Trujillo</option>
+            <option value="Sede Central - Trujillo">
+              Sede Central - Trujillo
+            </option>
             <option value="Sede Mall Aventura">Sede Mall Aventura</option>
             <option value="Sede El Golf">Sede El Golf</option>
           </select>

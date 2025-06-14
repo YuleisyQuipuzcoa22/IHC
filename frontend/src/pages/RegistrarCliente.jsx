@@ -70,9 +70,6 @@ function RegistrarCliente() {
     if (usuarioExistente) {
       setFieldValue("nombre", usuarioExistente.nombre);
       setFieldValue("apellido", usuarioExistente.apellido);
-      setFieldValue("direccion", usuarioExistente.direccion);
-      setFieldValue("correo", usuarioExistente.correo);
-      setFieldValue("contraseña", usuarioExistente.contraseña);
     }
   };
 

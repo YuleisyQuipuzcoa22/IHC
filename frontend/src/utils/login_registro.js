@@ -35,11 +35,12 @@ export const registrarUsuario = (nuevoUsuario) => {
 export const cargarUsuariosIniciales = () => {
   const usuariosLocal = localStorage.getItem("usuarios");
 
-  if (!usuariosLocal || JSON.stringify(JSON.parse(usuariosLocal)) !== JSON.stringify(usuariosIniciales)) {
-    console.log("Actualizando usuarios desde JSON...");
+  // Solo carga los usuarios iniciales si NO hay nada en localStorage
+  if (!usuariosLocal) {
+    console.log("Cargando usuarios iniciales desde JSON...");
     setUsuarios(usuariosIniciales);
   } else {
-    console.log("Usuarios ya actualizados en localStorage.");
+    console.log("Usuarios ya existen en localStorage.");
   }
 };
 
