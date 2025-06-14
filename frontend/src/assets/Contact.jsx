@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import emailjs from "@emailjs/browser"; // Asegúrate de instalar emailjs-com si no lo has hecho
+import emailjs from "@emailjs/browser";
 import logo from "../assets/logodulcinelly.png";
 import ubicacion from "../assets/ubicacion.png";
 import telefono from "../assets/telefono.png";
@@ -16,7 +16,7 @@ function Contact() {
         "service_857blle",
         "template_cxmqbff",
         form.current,
-        "I-lTjKWx3ic9WqYZz" // Tu public key, debe ser string
+        "I-lTjKWx3ic9WqYZz"
       )
       .then(
         () => {

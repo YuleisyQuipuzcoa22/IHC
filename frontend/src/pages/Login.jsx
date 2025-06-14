@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
+import * as Yup from "yup"; // <-- Agrega Yup
 import logo from "../assets/logodulcinelly.png";
 import Button from "../components/Button";
 import Input from "../components/Input";
@@ -10,6 +11,14 @@ import {
 } from "../utils/login_registro";
 import bienvenida from "../assets/bienvenida.jpg";
 
+// Esquema de validación Yup
+const validationSchema = Yup.object({
+  correo: Yup.string()
+    .email("Correo inválido")
+    .required("El correo es obligatorio"),
+  contraseña: Yup.string().required("La contraseña es obligatoria"),
+});
+
 function Login() {
   const navigate = useNavigate();
 
@@ -17,6 +26,7 @@ function Login() {
     correo: "",
     contraseña: "",
   };
+
   useEffect(() => {
     cargarUsuariosIniciales();
   }, []);
@@ -26,7 +36,6 @@ function Login() {
       correo: values.correo,
       contraseña: values.contraseña,
     });
-    console.log("Usuario encontrado:", usuarioEncontrado);
 
     const usuarioCorreo = buscarUsuarioPor({ correo: values.correo });
 
@@ -53,7 +62,7 @@ function Login() {
       if (usuarioCorreo) {
         alert("contraseña incorrecta");
       } else {
-        alert("Correo no registrado, por favor regístrate");
+        alert("Usuario no encontrado");
       }
     }
   };
@@ -82,26 +91,35 @@ function Login() {
             </h2>
           </div>
 
-          <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-            {({ handleChange, values }) => (
-              <Form className="flex flex-col gap-2">
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema} // <-- Aplica Yup aquí
+            onSubmit={handleSubmit}
+          >
+            {({ handleChange, values, errors, touched }) => (
+              <Form className="flex flex-col gap-4">
                 <Input
-                  type="text"
                   label="Correo electrónico"
                   name="correo"
-                  onChange={handleChange}
+                  type="email"
                   value={values.correo}
-                  className="placeholder:text-[#a3a3a3] text-[#000000] font-normal rounded-md p-3 outline-none bg-[#fff] rounded-[10px]"
+                  onChange={handleChange}
+                  className="p-3 rounded-md border border-gray-300"
                 />
+                {touched.correo && errors.correo && (
+                  <div className="text-red-600 text-xs">{errors.correo}</div>
+                )}
                 <Input
-                  type="password"
                   label="Contraseña"
                   name="contraseña"
-                  onChange={handleChange}
+                  type="password"
                   value={values.contraseña}
-                  className="placeholder:text-[#a3a3a3] text-[#000000] font-normal rounded-md p-3 outline-none bg-[#fff] rounded-[10px]"
+                  onChange={handleChange}
+                  className="p-3 rounded-md border border-gray-300"
                 />
-
+                {touched.contraseña && errors.contraseña && (
+                  <div className="text-red-600 text-xs">{errors.contraseña}</div>
+                )}
                 <Button
                   type="submit"
                   label="Iniciar Sesión"
