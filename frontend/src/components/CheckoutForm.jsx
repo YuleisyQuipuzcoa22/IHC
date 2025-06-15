@@ -15,6 +15,8 @@ const CheckoutForm = forwardRef((props, ref) => {
     distrito: "Trujillo",
     referencia: "",
     sede: "",
+      fechaEntrega: "", // <-- nuevo campo
+
   });
 
   // Al cargar el componente, llenar el formulario si hay usuario logueado
@@ -37,6 +39,14 @@ const CheckoutForm = forwardRef((props, ref) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
+  // Calcula la fecha mínima (mañana) en formato 'YYYY-MM-DDTHH:MM'
+const getMinFechaEntrega = () => {
+  const now = new Date();
+  now.setDate(now.getDate() + 1);
+  now.setSeconds(0, 0);
+  // Formato: YYYY-MM-DDTHH:MM
+  return now.toISOString().slice(0, 16);
+};
 
 
   return (
@@ -106,6 +116,17 @@ const CheckoutForm = forwardRef((props, ref) => {
           onChange={handleChange}
         />
       </div>
+      <div className="flex flex-col mt-2">
+  <label className="mb-1 font-medium">Fecha de entrega</label>
+  <input
+    type="datetime-local"
+    name="fechaEntrega"
+    className="bg-white w-full p-2 border border-gray-400 shadow rounded placeholder-[#a8a8a8]"
+    value={form.fechaEntrega}
+    onChange={handleChange}
+    min={getMinFechaEntrega()}
+  />
+</div>
 
       {/* Campos adicionales según el modo de entrega */}
       {modoEntrega === "delivery" && (
