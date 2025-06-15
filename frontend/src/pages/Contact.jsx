@@ -31,21 +31,25 @@ function Contact() {
   };
 
   return (
-    <div className="pt-24 pb-24 px-8 flex flex-col min-h-screen w-full bg-gradient-to-br from-[#fff7f0] via-[#ffe5e0] to-[#f9c7b6] items-center justify-center">
-      <div className="flex flex-col md:flex-row items-stretch justify-center w-full max-w-7xl gap-24 px-4">
-        {/* Columna izquierda: Información de contacto SIN tarjeta */}
-        <div className="md:w-[45%] w-full flex flex-col items-center justify-center gap-8 p-10">
-          <img
-            src={logo}
-            alt="Logo Dulcinelly"
-            className="h-28 w-auto mb-4 drop-shadow-lg"
-          />
-          <h1 className="text-5xl font-bold text-[#C46C3C] mb-2 lilita-text text-center">
-            Dulcinelly
-          </h1>
-          <p className="text-[#E8464D] text-2xl font-semibold mb-6 text-center">
-            ¡Queremos saber de ti!
-          </p>
+    <div className="pt-24 pb-24 px-8 flex flex-col min-h-screen w-full bg-gradient-to-br from-[#fff7f0] via-[#ffe5e0] to-[#f9c7b6] items-center">
+      {/* Logo y texto centrados debajo del header */}
+      <div className="flex flex-col items-center justify-center mb-12 mt-4 w-full">
+        <img
+          src={logo}
+          alt="Logo Dulcinelly"
+          className="h-28 w-auto mb-2 drop-shadow-lg"
+        />
+        <h1 className="text-5xl font-bold text-[#C46C3C] mb-2 lilita-text text-center">
+          Dulcinelly
+        </h1>
+        <p className="text-[#E8464D] text-2xl font-semibold mb-2 text-center">
+          ¡Queremos saber de ti!
+        </p>
+      </div>
+      {/* Dos columnas con espacio considerable */}
+      <div className="flex flex-col md:flex-row justify-center items-start w-full max-w-7xl gap-24 px-4">
+        {/* Columna izquierda: Información de contacto */}
+        <div className="md:w-[38%] w-full flex flex-col items-center justify-center gap-8 p-10 z-10">
           {/* Ubicación */}
           <div className="flex flex-col items-center mb-4 w-full">
             <div className="h-14 w-14 mb-2 bg-[#f9c7b6] rounded-full flex items-center justify-center shadow">
@@ -100,8 +104,9 @@ function Contact() {
             </p>
           </div>
         </div>
-        {/* Columna derecha: Formulario SIN tarjeta y SIN borde */}
-        <div className="md:w-[55%] w-full flex flex-col items-center justify-center">
+        {/* Espacio considerable entre columnas: gap-24 */}
+        {/* Columna derecha: Formulario */}
+        <div className="md:w-[38%] w-full flex flex-col items-center justify-center z-10">
           <form
             ref={form}
             onSubmit={enviarcorreo}
