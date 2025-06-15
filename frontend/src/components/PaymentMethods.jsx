@@ -2,37 +2,64 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import YapeModal from "./YapeModal";
 import BCPModal from "./BCPModal";
+import { limpiarCarrito, obtenerCarrito } from "../utils/carrito";
+import { guardarPedido } from "../utils/pedidos";
 
-const PaymentMethods =()=>{
+const PaymentMethods = ({ getCheckoutForm }) => {
+  const navigate = useNavigate();
+  const [modalAbierto, setModalAbierto] = React.useState(false);
+  const [tipoModal, setTipoModal] = React.useState("");
+  const [metodoSeleccionado, setMetodoSeleccionado] = React.useState(null);
+  const [bcpDatosValidados, setBcpDatosValidados] = React.useState(false);
 
-    const navigate = useNavigate();
-    const [modalAbierto, setModalAbierto] = React.useState(false);
-    const [tipoModal, setTipoModal] = React.useState("");
-    const [metodoSeleccionado, setMetodoSeleccionado] = React.useState(null);
-    const [bcpDatosValidados, setBcpDatosValidados] = React.useState(false);
+  const handlePagar = () => {
+    const productos = obtenerCarrito();
+    if (!localStorage.getItem("usuarioLogueado")) {
+      alert("Por favor, inicia sesión para continuar.");
+      return;
+    }
+    if (!productos || productos.length === 0) {
+      alert("¡No hay productos en el carrito por cual pagar!");
+      return;
+    }
+    if (!metodoSeleccionado) {
+      alert("Por favor, selecciona un método de pago.");
+      return;
+    }
+    // 1. Obtener usuario logueado
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
-    const handlePagar = () => {
-        if (!metodoSeleccionado) {
-            alert("Por favor, selecciona un método de pago.");
-            return;
-        }
-        if (metodoSeleccionado === "bcp" && !bcpDatosValidados) {
-            alert("Por favor, completa el pago en la aplicación BCP.");
-            return;
-        }
-        navigate("/compra-exitosa");
-        
+    // 3. Obtener datos del formulario de checkout
+    const datosCheckout = getCheckoutForm ? getCheckoutForm() : {};
+
+    // 4. Crear pedido
+    const pedido = {
+      usuario,
+      productos,
+      datosCheckout,
+      fecha: new Date().toISOString(),
+      metodoPago: metodoSeleccionado,
     };
 
-    const abrirModal = (tipo) => {
-        setTipoModal(tipo);
-        setModalAbierto(true);
-        setMetodoSeleccionado(tipo); 
-    };
-    const cerrarModal = () => {
-        setModalAbierto(false);
-        setTipoModal("");
-    };
+    // 5. Guardar pedido
+    guardarPedido(pedido);
+
+    // 6. Limpiar carrito
+    limpiarCarrito();
+
+    // 7. Redirigir
+    navigate("/compra-exitosa");
+  };
+
+  const abrirModal = (tipo) => {
+    setTipoModal(tipo);
+    setModalAbierto(true);
+    setMetodoSeleccionado(tipo);
+  };
+  const cerrarModal = () => {
+    setModalAbierto(false);
+    setTipoModal("");
+  };
 
   return (
     <div className="text-center mt-6">
@@ -63,7 +90,10 @@ const PaymentMethods =()=>{
             </button>
           </div>
 
-          <button className="border border-amber-900 text-amber-900 py-3 px-38 rounded hover:bg-[#E2B891] transition duration-300 ease-in-out hover:scale-104">
+          <button
+            className="border border-amber-900 text-amber-900 py-3 px-38 rounded hover:bg-[#E2B891] transition duration-300 ease-in-out hover:scale-104"
+            onClick={() => navigate("/catalogo-productos")}
+          >
             Seguir comprando
           </button>
         </div>

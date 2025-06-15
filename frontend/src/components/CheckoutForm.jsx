@@ -1,14 +1,15 @@
+import React, {
+  useEffect,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 
-import React, { useEffect, useState } from "react";
-import { useUserStore } from "../store/usuario.store";
-
-const CheckoutForm = () => {
-  const { user } = useUserStore();
+const CheckoutForm = forwardRef((props, ref) => {
   const [modoEntrega, setModoEntrega] = useState("delivery");
-
   const [form, setForm] = useState({
     nombre: "",
-    apellidos: "",
+    apellido: "",
     correo: "",
     direccion: "",
     distrito: "Trujillo",
@@ -18,21 +19,25 @@ const CheckoutForm = () => {
 
   // Al cargar el componente, llenar el formulario si hay usuario logueado
   useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("usuarioLogueado"));
     if (user) {
       setForm((prev) => ({
         ...prev,
         nombre: user.nombre || "",
-        apellidos: user.apellidos || "",
+        apellido: user.apellido || "",
         correo: user.correo || "",
       }));
     }
-  }, [user]);
-
+  }, []);
+  useImperativeHandle(ref, () => ({
+    form,
+  }));
   // Manejo de cambios en inputs
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
+
 
   return (
     <div className="space-y-4">
@@ -83,7 +88,7 @@ const CheckoutForm = () => {
             name="apellidos"
             placeholder="Apellidos"
             className="bg-white w-full p-2 border border-gray-400 shadow rounded placeholder-[#a8a8a8]"
-            value={form.apellidos}
+            value={form.apellido}
             onChange={handleChange}
           />
         </div>
@@ -171,6 +176,6 @@ const CheckoutForm = () => {
       )}
     </div>
   );
-};
+});
 
 export default CheckoutForm;

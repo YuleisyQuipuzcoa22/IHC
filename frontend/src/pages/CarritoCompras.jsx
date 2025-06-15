@@ -45,18 +45,20 @@ const Carrito = () => {
           <div className="flex bg-[#663d25]/15  h-[80px] space-x-5 rounded-lg items-center justify-left pl-5">
             <FaShoppingCart className="text-3xl text-[#663d25]" />
 
-            <h1 className="lilita-text text-2xl pt-5"> CARRO DE COMPRAS</h1>
+            <h1 className="lilita-text text-2xl"> CARRO DE COMPRAS</h1>
           </div>
           <div className="bg-[#663d25]/15 p-5 rounded-lg shadow overflow-y-auto max-h-[350px]">
             {carrito.length === 0 ? (
               <p className="text-center text-lg text-black">
-                El carrito está vacío <br/>¡Muchos postres esperan por ti!
+                El carrito está vacío <br />
+                ¡Muchos postres esperan por ti!
               </p>
             ) : (
               carrito.map((p) => (
                 <ProductoCarrito
                   key={p.id}
                   {...p}
+                  enlaceProducto={`/producto/${p.id}`}
                   onEliminar={handleEliminar}
                   actualizarCantidad={handleActualizarCantidad}
                 />
@@ -81,7 +83,19 @@ const Carrito = () => {
               color="#2c2c2c"
               hoverColor="#000"
               hoverTextColor="#FFFFFF"
-              onClick={() => navigate("/pago")}
+              onClick={() => {
+                if (!localStorage.getItem("usuarioLogueado")) {
+                  alert("Por favor, inicia sesión para continuar.");
+                  return;
+                }
+                if (carrito.length === 0) {
+                  alert(
+                    "El carrito está vacío. Por favor, añade productos antes de continuar."
+                  );
+                  return;
+                }
+                navigate("/pago");
+              }}
               className="cursor-pointer"
             />
             <Boton
