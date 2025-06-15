@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 function Filtros({ categoria, setCategoria, presentacion, setPresentacion, medida, setMedida }) {
   
   const filtrosProducto = {
-    categorias: ["Pasteles", "Bocaditos", "Bebidas"],
+    categorias: ["Productos dulces", "Postres boutique", "Bebidas"],
     tipoPresentacion: ["Porción", "Unidad"],
     unidadMedida: ["Kilogramo", "Litro"]
   };
