@@ -1,19 +1,24 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import CheckoutItem from "../components/CheckoutItem";
 import CheckoutForm from "../components/CheckoutForm";
 import OrderSummary from "../components/OrderSummary";
 import PaymentMethods from "../components/PaymentMethods";
-import { useCarritoStore } from "../store/carrito.store";
+import {obtenerCarrito} from "../utils/carrito";
 
 const Pago = () => {
-  const productos = useCarritoStore((state) => state.productos);
+  const [productos, setProductos] = useState(() => obtenerCarrito());
+  React.useEffect(() => {
+  const syncCarrito = () => setProductos(obtenerCarrito());
+  window.addEventListener("storage", syncCarrito);
+  return () => window.removeEventListener("storage", syncCarrito);
+}, []);
 
 const subtotal = productos.reduce((acc,item)=> acc + item.precio * item.cantidad, 0)
   return (
     <div className="p-6 flex flex-col gap-6">
     
     <div className=" flex flex-col lg:flex-row gap-6">
-      <div className="lg:w-2/3 bg-[#ECE0E0] p-6 rounded-lg shadow overflow-y-auto max-h-[500px] ">
+      <div className="lg:w-2/3 bg-[#ECE0E0] p-6 rounded-lg shadow overflow-y-auto max-h-[600px] ">
         <h2 className="text-2xl font-bold ">CHECK OUT</h2>
         <div className="mt-5 border-t-4 border-[#663D25] pt-4 "></div>
         {productos.map((item, index) => (
