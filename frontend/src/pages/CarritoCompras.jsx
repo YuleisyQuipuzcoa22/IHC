@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useCarritoStore } from "../store/carrito.store";
+import {
+  obtenerCarrito,
+  actualizarCantidad,
+  eliminarProducto,
+} from "../utils/carrito";
 import ProductoCarrito from "../components/ProductoCarrito";
 import { FaShoppingCart } from "react-icons/fa";
 import Boton from "../components/Button";
@@ -7,31 +11,32 @@ import { useNavigate } from "react-router-dom";
 
 const Carrito = () => {
   const navigate = useNavigate();
-  const { productos, setProductos, actualizarCantidad, eliminarProducto } =
-    useCarritoStore();
- 
 
-  /*
-  const eliminarProductoCarrito = (id) => {
-    setProductos((prev) => prev.filter((p) => p.id !== id));
+  const [carrito, setCarrito] = useState(() => obtenerCarrito());
+  const handleEliminar = (id) => {
+    eliminarProducto(id);
+    setCarrito(obtenerCarrito());
   };
-  
-  const actualizarCantidad = (id, nuevaCantidad) => {
-    setProductos((prev) =>
-      prev.map((producto) =>
-        producto.id === id ? { ...producto, cantidad: nuevaCantidad } : producto
-      )
-    );
-  };*/
+
+  const handleActualizarCantidad = (id, nuevaCantidad) => {
+    actualizarCantidad(id, nuevaCantidad);
+    setCarrito(obtenerCarrito());
+  };
+
   const [total, setTotal] = useState(0);
+  useEffect(() => {
+    const syncCarrito = () => setCarrito(obtenerCarrito());
+    window.addEventListener("storage", syncCarrito);
+    return () => window.removeEventListener("storage", syncCarrito);
+  }, []);
 
   useEffect(() => {
-    const subtotal = productos.reduce(
+    const subtotal = carrito.reduce(
       (acc, item) => acc + item.precio * item.cantidad,
       0
     );
     setTotal(subtotal);
-  }, [productos]);
+  }, [carrito]);
 
   return (
     <div className="pt-15 pb-20 pl-25 pr-25 flex flex-col ">
@@ -43,14 +48,20 @@ const Carrito = () => {
             <h1 className="lilita-text text-2xl pt-5"> CARRO DE COMPRAS</h1>
           </div>
           <div className="bg-[#663d25]/15 p-5 rounded-lg shadow overflow-y-auto max-h-[350px]">
-            {productos.map((p) => (
-              <ProductoCarrito
-                key={p.id}
-                {...p}
-                onEliminar={eliminarProducto}
-                actualizarCantidad={actualizarCantidad}
-              />
-            ))}
+            {carrito.length === 0 ? (
+              <p className="text-center text-lg text-black">
+                El carrito está vacío <br/>¡Muchos postres esperan por ti!
+              </p>
+            ) : (
+              carrito.map((p) => (
+                <ProductoCarrito
+                  key={p.id}
+                  {...p}
+                  onEliminar={handleEliminar}
+                  actualizarCantidad={handleActualizarCantidad}
+                />
+              ))
+            )}
           </div>
         </div>
         <div className=" flex flex-col lg:w-1/3 bg-[#e8464d]/20 p-6 rounded-lg ">
@@ -68,8 +79,7 @@ const Carrito = () => {
             <Boton
               label="Continuar"
               color="#2c2c2c"
-              hoverColor="#000000"
-              borderStyle={false}
+              hoverColor="#000"
               hoverTextColor="#FFFFFF"
               onClick={() => navigate("/pago")}
               className="cursor-pointer"

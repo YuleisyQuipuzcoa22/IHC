@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Boton from "./Button";
 import logo from "../assets/logodulcinelly.png";
-
-import { useCarritoStore } from "../store/carrito.store";
 import LinkMenuUsuario from "./LinkMenuUsuario";
 import LinkNavPrincipal from "./LinkNavPrincipal";
 import {
@@ -16,15 +14,23 @@ import {
 import { FiMenu } from "react-icons/fi";
 import { useState } from "react"; //prueba
 import LinkNavBurger from "./LinkNavBurger";
+import { getTotalProductos } from "../utils//carrito";
 
 function Header() {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("usuarioLogueado"))
-
+  const user = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
   //prueba carrito
-  const { productos, getTotalProductos } = useCarritoStore();
-  const totalProductos = getTotalProductos();
+  const [totalProductos, setTotalProductos] = useState(getTotalProductos());
+  useEffect(() => {
+    const syncCarrito = () => setTotalProductos(getTotalProductos());
+    window.addEventListener("storage", syncCarrito);
+    const interval = setInterval(syncCarrito, 500); // Opcional: refresca cada 0.5s
+    return () => {
+      window.removeEventListener("storage", syncCarrito);
+      clearInterval(interval);
+    };
+  }, []);
 
   //para el desplegable usuario
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -64,7 +70,7 @@ function Header() {
     localStorage.removeItem("usuarioLogueado");
     navigate("/login");
   };
- 
+
   return (
     <header
       className=" text-white p-3 shadow px-15"
@@ -131,7 +137,6 @@ function Header() {
                 {/* Menú desplegable usuario */}
                 {isDropdownOpen && (
                   <div className="z-50 absolute right-3 mt-2 w-48 bg-white rounded-md shadow-lg text-[#000000]">
-                     
                     {user.tipo_usuario === "cliente" && (
                       <>
                         <LinkMenuUsuario
@@ -178,7 +183,6 @@ function Header() {
                       color="#ff1100"
                       textColor="#000000"
                       onClick={handleLogout}
-                      
                       hoverColor="#000000"
                       hoverTextColor="#FFFFFF"
                       className="font-semibold  w-full h-12 rounded-sm"
