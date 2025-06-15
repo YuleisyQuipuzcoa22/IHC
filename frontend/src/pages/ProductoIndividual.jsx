@@ -1,33 +1,55 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import productosData from "../Data/productos.json";
 import Boton from "../components/Button";
 import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
-import { useCarritoStore } from "../store/carrito.store";
+import { agregarProducto } from "../utils//carrito";
+import productosPredefinidos from "../data/productos.json";
 
 function ProductoIndividual() {
   const { id } = useParams(); // Obtener el ID de la URL
-  const producto = productosData.find(p => p.id.toString() === id);
-
-  const { agregarProducto, actualizarCantidad } = useCarritoStore();
+  const [producto, setProducto] = useState(null);
   const [cantidad, setCantidad] = useState(1);
   const lensRef = useRef(null);
 
-  const incrementarCantidad = (e) => {
-  e.stopPropagation();
-  setCantidad((prev) => prev + 1);
-};
-
-const disminuirCantidad = (e) => {
-  e.stopPropagation();
-  if (cantidad > 1) {
-    setCantidad((prev) => prev - 1);
+  useEffect(() => {
+  const productosGuardados =
+    JSON.parse(localStorage.getItem("productos")) || [];
+  // Busca en localStorage
+  let encontrado = productosGuardados.find(
+    (p) => p.id === id || p.id === parseInt(id)
+  );
+  // Si no lo encuentra, busca en los predefinidos
+  if (!encontrado) {
+    encontrado = productosPredefinidos.find(
+      (p) => p.id === id || p.id === parseInt(id)
+    );
   }
-};
+  setProducto(encontrado);
+}, [id]);
+  if (!producto) {
+    return <p className="text center p-10">Producto no encontrado.</p>;
+  }
 
+  const incrementarCantidad = (e) => {
+    e.stopPropagation();
+    setCantidad((prev) => prev + 1);
+  };
+
+  const disminuirCantidad = (e) => {
+    e.stopPropagation();
+    if (cantidad > 1) {
+      setCantidad((prev) => prev - 1);
+    }
+  };
+  const handleAgregarAlCarrito = () => {
+    agregarProducto(producto, cantidad);
+  };
+  if (!producto)
+    return <p className="text-center p-10">Producto no encontrado</p>;
 
   const handleMouseMove = (e) => {
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
     const x = ((e.clientX - left) / width) * 100;
     const y = ((e.clientY - top) / height) * 100;
     lensRef.current.style.backgroundPosition = `${x}% ${y}%`;
@@ -40,11 +62,6 @@ const disminuirCantidad = (e) => {
   const handleMouseLeave = () => {
     lensRef.current.style.display = "none";
   };
-
-  const handleAgregarAlCarrito = () => {
-    agregarProducto(producto, cantidad); // <-- Agrega el producto y la cantidad al carrito
-  };
-  if (!producto) return <p className="text-center p-10">Producto no encontrado</p>;
 
   return (
     <div className="pt-15 pb-20 pl-25 pr-25 flex flex-col gap-5 ">
@@ -62,8 +79,14 @@ const disminuirCantidad = (e) => {
           />
           <div
             ref={lensRef}
-            className="zoom-lens rounded-[30px]"
-            style={{ backgroundImage: `url(${producto.imagen})` }}
+            className="absolute inset-0 rounded-[30px] pointer-events-none z-10"
+            style={{
+              display: "none",
+              backgroundImage: `url(${producto.imagen})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "120%",
+              transition: "background-position 0.1s ease",
+            }}
           ></div>
         </div>
 
@@ -72,13 +95,14 @@ const disminuirCantidad = (e) => {
             {producto.categoria}
           </p>
           <div className=" uppercase text-4xl font-bold pr-10 ">
-            {producto.titulo} {producto.valorUnidadMedida} {producto.unidadMedida}
+            {producto.titulo} {producto.valorUnidadMedida}{" "}
+            {producto.unidadMedida}
           </div>
           <p className="pt-1 text-[#663D25]">{producto.tipoPresentacion}</p>
           <p className="text-[#e8464d] text-3xl font-medium pt-10">
-            S/. {producto.precio}
+            S/. {Number(producto.precio).toFixed(2)}
           </p>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-5 pt-6">
             <div className="flex gap-2 items-center">
               <button className="cursor-pointer" onClick={disminuirCantidad}>
                 <FiMinusCircle className="size-8 text-[#663D25]  hover:text-black" />
@@ -104,7 +128,7 @@ const disminuirCantidad = (e) => {
       <div>
         <p className="font-semibold text-[#663D25] pl-5">DESCRIPCIÓN</p>
         <hr className="border border-[#E8464D] mb-3 " />
-        <p className="pl-5">{producto.descripcion}</p>
+        <p className="whitespace-pre-line pl-5">{producto.descripcion}</p>
       </div>
     </div>
   );

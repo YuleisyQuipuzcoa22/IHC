@@ -27,7 +27,11 @@ export const buscarUsuarioPor = (filtros) => {
 // Registrar un nuevo usuario
 export const registrarUsuario = (nuevoUsuario) => {
   const usuarios = getUsuarios();
-  usuarios.push({ ...nuevoUsuario, tipo_usuario: "cliente" });
+  usuarios.push({
+    idUsuario: Date.now().toString(), 
+    ...nuevoUsuario,    
+    tipo_usuario: "cliente",
+  });
   setUsuarios(usuarios);
 };
 

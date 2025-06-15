@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
 
-function Filtros({ categoria, setCategoria, presentacion, setPresentacion, medida, setMedida }) {
-  
-  const filtrosProducto = {
-    categorias: ["Productos dulces", "Postres boutique", "Bebidas"],
-    tipoPresentacion: ["Porción", "Unidad"],
-    unidadMedida: ["Kilogramo", "Litro"]
-  };
-
-  // Convertimos a formato [{nombre: ...}] para que sea compatible con renderFiltro
-  const categorias = filtrosProducto.categorias.map(nombre => ({ nombre }));
-  const tipo_presentacion = filtrosProducto.tipoPresentacion.map(nombre => ({ nombre }));
-  const unidad_medida = filtrosProducto.unidadMedida.map(nombre => ({ nombre }));
-
+function Filtros({
+  categoria,
+  setCategoria,
+  tipoPresentacion,
+  setTipoPresentacion,
+  unidadMedida,
+  setUnidadMedida,
+  categorias = [],
+  tiposPresentacion = [],
+  unidadesMedida = [],
+}) {
+  const categoriasOpciones = categorias.map((nombre) => ({ nombre }));
+  const tiposPresentacionOpciones = tiposPresentacion.map((nombre) => ({
+    nombre,
+  }));
+  const unidadesMedidaOpciones = unidadesMedida.map((nombre) => ({ nombre }));
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 
- 
   useEffect(() => {
     const handleResize = () => {
       setIsLargeScreen(window.innerWidth >= 1024);
@@ -24,43 +26,51 @@ function Filtros({ categoria, setCategoria, presentacion, setPresentacion, medid
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
- const handleCategoriaChange = (valor) => setCategoria(valor);
-const handlePresentacionChange = (valor) => setPresentacion(valor);
-const handleMedidaChange = (valor) => setMedida(valor);
+  const handleCategoriaChange = (valor) => setCategoria(valor);
+  const handleTipoPresentacionChange = (valor) => setTipoPresentacion(valor);
+  const handleUnidadMedidaChange = (valor) => setUnidadMedida(valor);
 
-
-  const limpiarCategoria = () => setCategoria('');
-  const limpiarPresentacion = () => setPresentacion('');
-  const limpiarMedida = () => setMedida('');
+  const limpiarCategoria = () => setCategoria("");
+  const limpiarTipoPresentacion = () => setTipoPresentacion("");
+  const limpiarUnidadMedida = () => setUnidadMedida("");
 
   const limpiarTodosFiltros = () => {
-    setCategoria('');
-    setPresentacion('');
-    setMedida('');
+    setCategoria("");
+    setTipoPresentacion("");
+    setUnidadMedida("");
   };
-
-  const renderFiltro = (label, opciones, name, valorActual, handlerChange, limpiarFiltro) => {
+  const renderFiltro = (
+    label,
+    opciones,
+    name,
+    valorActual,
+    handlerChange,
+    limpiarFiltro
+  ) => {
     return (
-      <div className={`${isLargeScreen ? 'mb-6' : 'mb-3'}`}>
+      <div className={`${isLargeScreen ? "mb-6" : "mb-3"}`}>
         {isLargeScreen ? (
           <div className="flex flex-col gap-1">
             <div className="w-full h-1 bg-gradient-to-r from-amber-600 to-amber-800 mx-auto rounded-full"></div>
-            <div className="flex flex-row items-center gap-4">
+            <div className="flex flex-row items-center justify-between gap-2 mr-2">
               <h3 className="text-lg font-semibold mb-2">{label}</h3>
               {valorActual && (
                 <button
                   onClick={limpiarFiltro}
-                  className="text-sm text-red-500 hover:text-red-700 mb-2"
+                  className="text-sm text-red-500 hover:text-red-700 mb-2  px-2 py-1 rounded-full bg-red-50 hover:bg-red-100 transition-colors"
                 >
                   Limpiar
                 </button>
               )}
             </div>
             {opciones.map((op, idx) => (
-              <label key={idx} className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded">
-                <input 
-                  type="radio" 
-                  name={name} 
+              <label
+                key={idx}
+                className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded"
+              >
+                <input
+                  type="radio"
+                  name={name}
                   value={op.nombre}
                   checked={valorActual === op.nombre}
                   onChange={(e) => handlerChange(e.target.value)}
@@ -74,22 +84,26 @@ const handleMedidaChange = (valor) => setMedida(valor);
           <div className="w-full">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-1 h-6 bg-gradient-to-b from-amber-600 to-amber-800 rounded-full flex-shrink-0"></div>
-              <label className="text-sm font-medium text-gray-700 flex-1">{label}:</label>
+              <label className="text-sm font-medium text-gray-700 flex-1">
+                {label}:
+              </label>
               {valorActual && (
                 <button
-                  onClick={limpiarFiltro}
+                  onClick={limpiarTodosFiltros}
                   className="text-xs text-red-500 hover:text-red-700 px-2 py-1 rounded-full bg-red-50 hover:bg-red-100 transition-colors"
                 >
                   ✕
                 </button>
               )}
             </div>
-            <select 
+            <select
               className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-200 shadow-sm"
               value={valorActual}
               onChange={(e) => handlerChange(e.target.value)}
             >
-              <option value="" className="text-gray-500">Seleccionar {label.toLowerCase()}</option>
+              <option value="" className="text-gray-500">
+                Seleccionar {label.toLowerCase()}
+              </option>
               {opciones.map((op, idx) => (
                 <option key={idx} value={op.nombre} className="text-gray-800">
                   {op.nombre}
@@ -102,91 +116,85 @@ const handleMedidaChange = (valor) => setMedida(valor);
     );
   };
 
-  const filtrosActivos = [categoria, presentacion, medida].filter(Boolean);
+  const filtrosActivos = [categoria, tipoPresentacion, unidadMedida].filter(
+    Boolean
+  );
 
   return (
-    <aside className={` 
+    <aside
+      className={` 
       w-full bg-white rounded-xl shadow-lg border border-gray-100 p-4
-      ${isLargeScreen 
-        ? 'lg:min-w-[270px] lg:max-w-[270px] flex flex-col gap-4' 
-        : 'flex flex-col space-y-4'
+      ${
+        isLargeScreen
+          ? "lg:min-w-[270px] lg:max-w-[300px] flex flex-col gap-4"
+          : "flex flex-col space-y-4"
       }
-    `}>
+    `}
+    >
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl font-bold text-gray-800 flex items-center gap-2">
           <div className="w-2 h-2 bg-amber-600 rounded-full"></div>
           Filtros
         </h2>
-        {(categoria || presentacion || medida) && (
-          <button 
-            onClick={limpiarTodosFiltros} 
-            className="text-sm text-red-600 hover:text-red-800"
+        {filtrosActivos.length > 0 && (
+          <button
+            onClick={limpiarTodosFiltros}
+            className="text-sm text-red-600 hover:text-red-800 px-2 py-1 rounded-full bg-red-50 hover:bg-red-100 transition-colors"
           >
             Limpiar todos
           </button>
         )}
       </div>
-      
-      <div className={`${isLargeScreen ? 'space-y-6' : 'grid grid-cols-1 gap-4'}`}>
-        {renderFiltro("Categorías", categorias, "categoria", categoria, handleCategoriaChange, limpiarCategoria)}
-        {renderFiltro("Presentación", tipo_presentacion, "presentacion", presentacion, handlePresentacionChange, limpiarPresentacion)}
-        {renderFiltro("Medida", unidad_medida, "medida", medida, handleMedidaChange, limpiarMedida)}
+
+      <div className={`${isLargeScreen ? "space-y-6" : "grid grid-cols-1 gap-4"}`}>
+        {renderFiltro(
+          "Categoría",
+          categoriasOpciones,
+          "categoria",
+          categoria,
+          handleCategoriaChange,
+          limpiarCategoria
+        )}
+        {renderFiltro(
+          "Tipo de Presentación",
+          tiposPresentacionOpciones,
+          "tipoPresentacion",
+          tipoPresentacion,
+          handleTipoPresentacionChange,
+          limpiarTipoPresentacion
+        )}
+        {renderFiltro(
+          "Unidad de Medida",
+          unidadesMedidaOpciones,
+          "unidadMedida",
+          unidadMedida,
+          handleUnidadMedidaChange,
+          limpiarUnidadMedida
+        )}
       </div>
 
-      {filtrosActivos.length > 0 && !isLargeScreen && (
-        <div className="mt-4 p-3 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg border">
-          <h4 className="text-sm font-semibold mb-2 text-gray-700 flex items-center gap-2">
-            <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-            Filtros aplicados:
-          </h4>
-          <div className="flex flex-wrap gap-2">
-            {categoria && (
-              <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full border border-blue-200">
-                <span className="font-medium">Cat:</span> {categoria}
-                <button
-                  onClick={limpiarCategoria}
-                  className="ml-1 hover:bg-blue-200 rounded-full p-0.5 transition-colors"
-                  title="Remover filtro"
-                >
-                  ×
-                </button>
-              </span>
-            )}
-            {presentacion && (
-              <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full border border-green-200">
-                <span className="font-medium">Pres:</span> {presentacion}
-                <button
-                  onClick={limpiarPresentacion}
-                  className="ml-1 hover:bg-green-200 rounded-full p-0.5 transition-colors"
-                  title="Remover filtro"
-                >
-                  ×
-                </button>
-              </span>
-            )}
-            {medida && (
-              <span className="inline-flex items-center gap-1 px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full border border-purple-200">
-                <span className="font-medium">Med:</span> {medida}
-                <button
-                  onClick={limpiarMedida}
-                  className="ml-1 hover:bg-purple-200 rounded-full p-0.5 transition-colors"
-                  title="Remover filtro"
-                >
-                  ×
-                </button>
-              </span>
-            )}
-          </div>
-        </div>
-      )}
-
-      {filtrosActivos.length > 0 && isLargeScreen && (
+      {/* Resumen de filtros activos */}
+      {(categoria || tipoPresentacion || unidadMedida) && (
         <div className="mt-4 p-3 bg-gray-50 rounded-lg border border-gray-200">
-          <h4 className="text-sm font-semibold mb-2 text-gray-700">Filtros activos:</h4>
+          <h4 className="text-sm font-semibold mb-2 text-gray-700">
+            Filtros activos:
+          </h4>
           <div className="space-y-1">
-            {categoria && <div className="text-xs text-blue-700 bg-blue-50 px-2 py-1 rounded">Categoría: {categoria}</div>}
-            {presentacion && <div className="text-xs text-green-700 bg-green-50 px-2 py-1 rounded">Presentación: {presentacion}</div>}
-            {medida && <div className="text-xs text-purple-700 bg-purple-50 px-2 py-1 rounded">Medida: {medida}</div>}
+            {categoria && (
+              <div className="text-xs text-blue-700 bg-blue-50 px-2 py-1 rounded">
+                Categoría: {categoria}
+              </div>
+            )}
+            {tipoPresentacion && (
+              <div className="text-xs text-green-700 bg-green-50 px-2 py-1 rounded">
+                Tipo de Presentación: {tipoPresentacion}
+              </div>
+            )}
+            {unidadMedida && (
+              <div className="text-xs text-purple-700 bg-purple-50 px-2 py-1 rounded">
+                Unidad de medida: {unidadMedida}
+              </div>
+            )}
           </div>
         </div>
       )}

@@ -1,37 +1,53 @@
-import React, { useEffect, useState } from "react";
-import { useUserStore } from "../store/usuario.store";
+import React, {
+  useEffect,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 
-const CheckoutForm = () => {
-  const { user } = useUserStore();
+const CheckoutForm = forwardRef((props, ref) => {
   const [modoEntrega, setModoEntrega] = useState("delivery");
-
   const [form, setForm] = useState({
     nombre: "",
-    apellidos: "",
+    apellido: "",
     correo: "",
     direccion: "",
     distrito: "Trujillo",
     referencia: "",
     sede: "",
+      fechaEntrega: "", // <-- nuevo campo
+
   });
 
   // Al cargar el componente, llenar el formulario si hay usuario logueado
   useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("usuarioLogueado"));
     if (user) {
       setForm((prev) => ({
         ...prev,
         nombre: user.nombre || "",
-        apellidos: user.apellidos || "",
+        apellido: user.apellido || "",
         correo: user.correo || "",
       }));
     }
-  }, [user]);
-
+  }, []);
+  useImperativeHandle(ref, () => ({
+    form,
+  }));
   // Manejo de cambios en inputs
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
+  // Calcula la fecha mínima (mañana) en formato 'YYYY-MM-DDTHH:MM'
+const getMinFechaEntrega = () => {
+  const now = new Date();
+  now.setDate(now.getDate() + 1);
+  now.setSeconds(0, 0);
+  // Formato: YYYY-MM-DDTHH:MM
+  return now.toISOString().slice(0, 16);
+};
+
 
   return (
     <div className="space-y-4">
@@ -82,7 +98,7 @@ const CheckoutForm = () => {
             name="apellidos"
             placeholder="Apellidos"
             className="bg-white w-full p-2 border border-gray-400 shadow rounded placeholder-[#a8a8a8]"
-            value={form.apellidos}
+            value={form.apellido}
             onChange={handleChange}
           />
         </div>
@@ -100,6 +116,17 @@ const CheckoutForm = () => {
           onChange={handleChange}
         />
       </div>
+      <div className="flex flex-col mt-2">
+  <label className="mb-1 font-medium">Fecha de entrega</label>
+  <input
+    type="datetime-local"
+    name="fechaEntrega"
+    className="bg-white w-full p-2 border border-gray-400 shadow rounded placeholder-[#a8a8a8]"
+    value={form.fechaEntrega}
+    onChange={handleChange}
+    min={getMinFechaEntrega()}
+  />
+</div>
 
       {/* Campos adicionales según el modo de entrega */}
       {modoEntrega === "delivery" && (
@@ -170,6 +197,6 @@ const CheckoutForm = () => {
       )}
     </div>
   );
-};
+});
 
 export default CheckoutForm;

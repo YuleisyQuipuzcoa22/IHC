@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import emailjs from "@emailjs/browser"; // Asegúrate de instalar emailjs-com si no lo has hecho
+import emailjs from "@emailjs/browser";
 import logo from "../assets/logodulcinelly.png";
 import ubicacion from "../assets/ubicacion.png";
 import telefono from "../assets/telefono.png";
@@ -16,7 +16,7 @@ function Contact() {
         "service_857blle",
         "template_cxmqbff",
         form.current,
-        "I-lTjKWx3ic9WqYZz" // Tu public key, debe ser string
+        "I-lTjKWx3ic9WqYZz"
       )
       .then(
         () => {
@@ -31,34 +31,53 @@ function Contact() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-[#fff7f0] via-[#ffe5e0] to-[#f9c7b6]">
-      <div className="flex flex-col md:flex-row rounded-2xl shadow-2xl overflow-hidden max-w-5xl w-full m-5 bg-[#fff7f0]">
+    <div className="pt-24 pb-24 px-8 flex flex-col min-h-screen w-full bg-gradient-to-br from-[#fff7f0] via-[#ffe5e0] to-[#f9c7b6] items-center">
+      {/* Logo y texto centrados debajo del header */}
+      <div className="flex flex-col items-center justify-center mb-12 mt-4 w-full">
+        <img
+          src={logo}
+          alt="Logo Dulcinelly"
+          className="h-28 w-auto mb-2 drop-shadow-lg"
+        />
+        <h1 className="text-5xl font-bold text-[#C46C3C] mb-2 lilita-text text-center">
+          Dulcinelly
+        </h1>
+        <p className="text-[#E8464D] text-2xl font-semibold mb-2 text-center">
+          ¡Queremos saber de ti!
+        </p>
+      </div>
+      {/* Dos columnas con espacio considerable */}
+      <div className="flex flex-col md:flex-row justify-center items-start w-full max-w-7xl gap-24 px-4">
         {/* Columna izquierda: Información de contacto */}
-        <div className="md:w-1/2 w-full flex flex-col items-center justify-center gap-8 p-8 bg-[#fff7f0]">
+        <div className="md:w-[38%] w-full flex flex-col items-center justify-center gap-8 p-10 z-10">
           {/* Ubicación */}
-          <div className="flex flex-col items-center mb-4">
-            <div className="h-10 w-10 mb-2 bg-[#f9c7b6] rounded-full flex items-center justify-center">
-              <img src={ubicacion} alt="ubicación" className="h-6 w-6" />
+          <div className="flex flex-col items-center mb-4 w-full">
+            <div className="h-14 w-14 mb-2 bg-[#f9c7b6] rounded-full flex items-center justify-center shadow">
+              <img src={ubicacion} alt="ubicación" className="h-8 w-8" />
             </div>
-            <p className="text-[#C46C3C] font-semibold text-center mb-1">
+            <p className="text-[#C46C3C] font-bold text-xl text-center mb-1">
               Ubicación:
             </p>
-            <ul className="text-[#C46C3C] text-center text-sm font-normal space-y-1">
-              <li>Los Diamantes 159. Santa Inés</li>
-              <li>Av. Larco 1266. Víctor Larco</li>
-              <li>Los Pinos 245. Huanchaco</li>
-              <li>Junín 497. Centro</li>
-              <li>El Golf</li>
-              <li>Plaza del Centro Comercial</li>
-            </ul>
+            <div className="grid grid-cols-2 gap-x-8 text-[#C46C3C] text-center text-lg font-normal w-full max-w-md mx-auto">
+              <div>
+                <div>Los Diamantes 159. Santa Inés</div>
+                <div>Av. Larco 1266. Víctor Larco</div>
+                <div>Los Pinos 245. Huanchaco</div>
+              </div>
+              <div>
+                <div>Junín 497. Centro</div>
+                <div>El Golf</div>
+                <div>Plaza del Centro Comercial</div>
+              </div>
+            </div>
           </div>
           {/* Horario */}
           <div className="flex flex-col items-center mb-4">
-            <div className="h-10 w-10 mb-2 bg-[#f9c7b6] rounded-full flex items-center justify-center">
-              <img src={horario} alt="horario" className="h-6 w-6" />
+            <div className="h-14 w-14 mb-2 bg-[#f9c7b6] rounded-full flex items-center justify-center shadow">
+              <img src={horario} alt="horario" className="h-8 w-8" />
             </div>
-            <p className="text-[#C46C3C] font-semibold text-center">Horario:</p>
-            <p className="text-[#C46C3C] text-center text-sm">
+            <p className="text-[#C46C3C] font-bold text-xl text-center">Horario:</p>
+            <p className="text-[#C46C3C] text-center text-lg">
               Lunes a viernes: 6:30am a 9:00pm
               <br />
               Domingos: 12:00pm a 8:00pm
@@ -66,47 +85,38 @@ function Contact() {
           </div>
           {/* Teléfono */}
           <div className="flex flex-col items-center mb-4">
-            <div className="h-10 w-10 mb-2 bg-[#f9c7b6] rounded-full flex items-center justify-center">
-              <img src={telefono} alt="teléfono" className="h-6 w-6" />
+            <div className="h-14 w-14 mb-2 bg-[#f9c7b6] rounded-full flex items-center justify-center shadow">
+              <img src={telefono} alt="teléfono" className="h-8 w-8" />
             </div>
-            <p className="text-[#C46C3C] font-semibold text-center">Teléfono:</p>
-            <p className="text-[#C46C3C] text-center text-sm">
+            <p className="text-[#C46C3C] font-bold text-xl text-center">Teléfono:</p>
+            <p className="text-[#C46C3C] text-center text-lg">
               +51 986 358 682
             </p>
           </div>
           {/* Correo */}
           <div className="flex flex-col items-center">
-            <div className="h-10 w-10 mb-2 bg-[#f9c7b6] rounded-full flex items-center justify-center">
-              <img src={correo} alt="correo" className="h-6 w-6" />
+            <div className="h-14 w-14 mb-2 bg-[#f9c7b6] rounded-full flex items-center justify-center shadow">
+              <img src={correo} alt="correo" className="h-8 w-8" />
             </div>
-            <p className="text-[#C46C3C] font-semibold text-center">Correo:</p>
-            <p className="text-[#C46C3C] text-center text-sm break-all">
+            <p className="text-[#C46C3C] font-bold text-xl text-center">Correo:</p>
+            <p className="text-[#C46C3C] text-center text-lg break-all">
               Dulcinelly.@gmail.com
             </p>
           </div>
         </div>
+        {/* Espacio considerable entre columnas: gap-24 */}
         {/* Columna derecha: Formulario */}
-        <div className="md:w-1/2 w-full flex flex-col items-center justify-center p-8 bg-[#fff7f0]">
-          <img
-            src={logo}
-            alt="Logo Dulcinelly"
-            className="h-20 w-auto mb-2 drop-shadow-lg"
-          />
-          <h1 className="text-3xl font-bold text-[#C46C3C] mb-1 lilita-text">
-            Dulcinelly
-          </h1>
-          <p className="text-[#E8464D] text-lg font-semibold mb-4">
-            ¡Queremos saber de ti!
-          </p>
+        <div className="md:w-[38%] w-full flex flex-col items-center justify-center z-10">
           <form
             ref={form}
             onSubmit={enviarcorreo}
-            className="flex flex-col gap-4 bg-[#fff7f0] p-8 rounded-2xl shadow-2xl w-full max-w-md border-2 border-[#f9c7b6]"
+            className="flex flex-col gap-6 w-full max-w-xl justify-center p-12 bg-transparent"
+            style={{ minHeight: "500px" }}
           >
-            <h2 className="text-2xl font-bold mb-2 text-center text-[#E8464D]">
+            <h2 className="text-4xl font-bold mb-2 text-center text-[#E8464D]">
               Contáctanos
             </h2>
-            <p className="text-center text-[#c46c3c] mb-4">
+            <p className="text-center text-[#c46c3c] mb-4 text-xl">
               ¿Tienes dudas, sugerencias o quieres saludarnos? ¡Escríbenos!
             </p>
             <input
@@ -114,32 +124,32 @@ function Contact() {
               name="nombre"
               placeholder="Tu nombre"
               required
-              className="p-3 rounded-md border border-[#f9c7b6] focus:border-[#E8464D] outline-none"
+              className="p-4 rounded-md border-2 border-[#8B3A1C] focus:border-[#E8464D] outline-none text-lg font-semibold shadow-sm"
             />
             <input
               type="email"
               name="correo"
               placeholder="Tu correo electrónico"
               required
-              className="p-3 rounded-md border border-[#f9c7b6] focus:border-[#E8464D] outline-none"
+              className="p-4 rounded-md border-2 border-[#8B3A1C] focus:border-[#E8464D] outline-none text-lg font-semibold shadow-sm"
             />
             <input
               type="text"
               name="asunto"
               placeholder="Asunto"
               required
-              className="p-3 rounded-md border border-[#f9c7b6] focus:border-[#E8464D] outline-none"
+              className="p-4 rounded-md border-2 border-[#8B3A1C] focus:border-[#E8464D] outline-none text-lg font-semibold shadow-sm"
             />
             <textarea
               name="mensaje"
               placeholder="Escribe tu mensaje"
               required
-              rows={5}
-              className="p-3 rounded-md border border-[#f9c7b6] focus:border-[#E8464D] outline-none resize-none"
+              rows={6}
+              className="p-4 rounded-md border-2 border-[#8B3A1C] focus:border-[#E8464D] outline-none resize-none text-lg font-semibold shadow-sm"
             />
             <button
               type="submit"
-              className="bg-gradient-to-r from-[#E8464D] to-[#C46C3C] text-white font-semibold py-2 rounded-md hover:from-[#c93c41] hover:to-[#a94e2c] transition"
+              className="bg-gradient-to-r from-[#E8464D] to-[#C46C3C] text-white font-semibold py-3 rounded-md text-xl hover:from-[#c93c41] hover:to-[#a94e2c] transition"
             >
               ¡Enviar dulzura!
             </button>

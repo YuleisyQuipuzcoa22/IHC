@@ -1,5 +1,6 @@
 [
   {
+    "idUsuario": 1,
     "correo": "admin@dulcinelly.com",
     "contraseña": "admin123",
     "DNI": "78945612",
@@ -7,6 +8,7 @@
     "tipo_usuario": "admin"
   },
   {
+    "idUsuario": 2,
     "correo": "flavio@dulcinelly.com",
     "contraseña": "asist123",
     "DNI": "12345678",

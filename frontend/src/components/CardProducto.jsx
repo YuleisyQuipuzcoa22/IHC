@@ -9,8 +9,6 @@ function CardProducto({
   titulo,
   precio,
   tipoPresentacion,
-  bgColor = "#C46C3C",
-  hoverColor = "#e8464d",
 }) {
   const [hovered, setHovered] = useState(false);
 
@@ -19,8 +17,9 @@ function CardProducto({
       className="w-full rounded-xl overflow-hidden shadow-sm hover:shadow-lg bg-white cursor-pointer p-3"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      
     >
-      <div className="relative h-64 w-full">
+      <div className="relative h-64 w-full ">
         <img
           src={imageUrl}
           alt={titulo}
