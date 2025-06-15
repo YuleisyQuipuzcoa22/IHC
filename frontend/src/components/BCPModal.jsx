@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-const BCPModal = ({ onClose, onPagoExitoso }) => {
+const BCPModal = ({ onClose, onDatosValidados }) => {
   const [form, setForm] = useState({
     tarjeta: "4111 1111 1111 1111",
     cvv: "123",
@@ -28,10 +28,8 @@ const BCPModal = ({ onClose, onPagoExitoso }) => {
     const nuevosErrores = validar();
     setErrores(nuevosErrores);
     if (Object.keys(nuevosErrores).length === 0) {
-      alert("Pago realizado correctamente (prueba)");
-      if (onPagoExitoso) {
-        onPagoExitoso();
-      }
+      alert("Datos validados correctamente. Ahora puedes pagar.");
+      if (onDatosValidados) onDatosValidados();
       onClose();
     }
   };

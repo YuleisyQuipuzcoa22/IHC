@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import Boton from "../components/Button";
 import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 import { agregarProducto } from "../utils//carrito";
+import productosPredefinidos from "../data/productos.json";
+
 function ProductoIndividual() {
   const { id } = useParams(); // Obtener el ID de la URL
   const [producto, setProducto] = useState(null);
@@ -10,13 +12,20 @@ function ProductoIndividual() {
   const lensRef = useRef(null);
 
   useEffect(() => {
-    const productosGuardados =
-      JSON.parse(localStorage.getItem("productos")) || [];
-    const encontrado = productosGuardados.find(
+  const productosGuardados =
+    JSON.parse(localStorage.getItem("productos")) || [];
+  // Busca en localStorage
+  let encontrado = productosGuardados.find(
+    (p) => p.id === id || p.id === parseInt(id)
+  );
+  // Si no lo encuentra, busca en los predefinidos
+  if (!encontrado) {
+    encontrado = productosPredefinidos.find(
       (p) => p.id === id || p.id === parseInt(id)
     );
-    setProducto(encontrado);
-  }, [id]);
+  }
+  setProducto(encontrado);
+}, [id]);
   if (!producto) {
     return <p className="text center p-10">Producto no encontrado.</p>;
   }

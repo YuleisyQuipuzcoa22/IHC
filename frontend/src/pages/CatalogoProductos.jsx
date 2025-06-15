@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardProduct from "../components/CardProducto";
 import Filtros from "../components/Filtros";
-
+import productosPredefinidos from "../data/productos.json";
 function CatalogoProductos() {
   const [products, setProducts] = useState([]);
   const [categoria, setCategoria] = useState("");
@@ -10,7 +10,7 @@ function CatalogoProductos() {
 
   useEffect(() => {
     const productosGuardados = JSON.parse(localStorage.getItem("productos")) || [];
-    setProducts(productosGuardados);
+    setProducts([...productosPredefinidos, ...productosGuardados]);
   }, []);
 
   // Opciones únicas para los filtros
