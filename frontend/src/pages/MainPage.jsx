@@ -1,4 +1,4 @@
-import React from "react";
+
 import Carrusel from '../components/CarruselMain'
 import carrusel_1 from "../assets/carrusel_1.png";
 import carrusel_2 from "../assets/carrusel_2.png";
@@ -8,6 +8,10 @@ import presentacion_personal from "../assets/presentacion_personal.jpg";
 import sedes from "../assets/sedes.png";
 import borde2 from '../assets/borde2.png';
 import bordeondas from '../assets/bordeondas.png';
+import Dashboard from "../components/Dashboard";
+
+
+
 const imagenesCarrusel = [
   { imagen: carrusel_1 },
   { imagen: carrusel_2 },
@@ -23,7 +27,10 @@ const frases = [
    { color: "#E8464D",texto: "“Pasteles artesanales que despiertan sonrisas – Dulcinelly lo hace posible." }, 
 ];
 
+
+
 function MainPage() {
+
   return (
     <div>     
       <Carrusel
@@ -137,6 +144,9 @@ function MainPage() {
           </ul>
         </div>
       </div>
+
+      <Dashboard />
+
     </div>
   );
 }
