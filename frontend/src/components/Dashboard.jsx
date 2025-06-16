@@ -35,24 +35,24 @@ const Dashboard = () => {
 
   return (
     <div
-      className="w-full py-8 flex flex-col md:flex-row justify-center items-center mb-8 gap-8 md:gap-20"
+      className="w-full py-8 flex flex-col md:flex-row justify-center items-center gap-8 md:gap-20"
       style={{ backgroundColor: "#F8B6BA" }}
     >
       <DashboardCard
         icon={usuarioIcono}
-        value={productos.toLocaleString()}
-        label="Productos disponibles en Dulcinelly"
+        value={"+"+productos.toLocaleString()}
+        label="Productos disponibles con receta única"
         ref={productosContadorRef}
       />
       <DashboardCard
         icon={ventaIcono}
-        value={ventas.toLocaleString()}
-        label="Ventas realizadas en DulciNelly"
+        value={"+"+ventas.toLocaleString()}
+        label="Ventas realizadas en este 2025"
         ref={ventasContadorRef}
       />
       <DashboardCard
         icon={usuarioIcono}
-        value={usuarios.toLocaleString()}
+        value={"+"+usuarios.toLocaleString()}
         label="Usuarios confían en Dulcinelly"
         ref={usuariosContadorRef}
       />

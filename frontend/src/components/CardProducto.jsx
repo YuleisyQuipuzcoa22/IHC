@@ -8,6 +8,8 @@ function CardProducto({
   linkTo,
   titulo,
   precio,
+  unidadMedida,
+  valorUnidadMedida,
   tipoPresentacion,
 }) {
   const [hovered, setHovered] = useState(false);
@@ -39,7 +41,7 @@ function CardProducto({
         )}
       </div>
       <div className="flex flex-col pt-4 items-center justify-between pt-4 h-40">
-        <p className=" text-lg font-semibold uppercase text-center ">{titulo}</p>
+        <p className=" text-lg font-semibold uppercase text-center ">{titulo} {valorUnidadMedida} {unidadMedida}</p>
         <p className=" font-medium text-md text-[#663D25]">{tipoPresentacion}</p>
         <p className="text-[#C46C3C] font-bold text-lg">S/. {precio}</p>
         

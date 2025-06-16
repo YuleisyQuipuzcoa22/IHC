@@ -14,6 +14,8 @@ import ProductoIndividual from "./pages/ProductoIndividual";
 import CompraExitosa from "./pages/CompraExitosa";
 import RegistrarCliente from "./pages/RegistrarCliente";
 import Contact from "./pages/Contact"; 
+import DashboardAdmin from "./pages/DashboardAdmin";
+
 
 
 function App() {
@@ -33,6 +35,8 @@ function App() {
   { path: "/compra-exitosa", element: <CompraExitosa /> },
   { path: "/registrarcliente", element: <RegistrarCliente /> },
   { path: "/contact", element: <Contact /> },
+    { path: "/dashboard_admin", element: <DashboardAdmin /> },
+
 ];
 const rutasValidas = rutasConocidas.map((ruta) => ruta.path);
 

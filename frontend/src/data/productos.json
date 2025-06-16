@@ -1,366 +1,409 @@
 [
-    {
+  {
     "id": 1,
     "imagen": "/assets/torta_chocolate.png.png",
-    "titulo": "Torta de chocolate 1 kg",
+    "titulo": "Torta de chocolate",
     "tipoPresentacion": "Unidad",
     "precio": 70.5,
     "categoria": "Pasteles",
-    "unidadMedida": "Kg","valorUnidadMedida": 1.5,
-     "descripcion": "Deliciosa torta de chocolate elaborada con cacao puro, rellena y cubierta con ganache de chocolate. Perfecta para los amantes del chocolate."
-    },
-    {
+    "unidadMedida": "Kg",
+    "valorUnidadMedida": 1.5,
+    "descripcion": "Deliciosa torta de chocolate, elaborada con cacao puro, rellena y cubierta con ganache de chocolate. Ideal para compartir."
+  },
+  {
     "id": 2,
     "imagen": "/assets/Cafe_moka.png",
     "titulo": "Café moka",
     "tipoPresentacion": "Unidad",
     "precio": 6,
-     "categoria": "Bebidas",
-    "unidadMedida": "Lt","valorUnidadMedida": 1.5,
-     "descripcion": "Deliciosa torta de chocolate elaborada con cacao puro, rellena y cubierta con ganache de chocolate. Perfecta para los amantes del chocolate."
-    },
-    {
+    "categoria": "Bebidas",
+    "unidadMedida": "ml",
+    "valorUnidadMedida": 300,
+    "descripcion": "Exquisito café moka, la combinación perfecta de espresso, leche vaporizada y chocolate, coronado con crema batida."
+  },
+  {
     "id": 3,
     "imagen": "/assets/torta_fresa.png",
     "titulo": "Torta de crocante de fresa",
     "tipoPresentacion": "Porción",
     "precio": 70.5,
-     "categoria": "Pasteles",
-    "unidadMedida": "Kg","valorUnidadMedida": 1.5,
-     "descripcion": "Deliciosa torta de chocolate elaborada con cacao puro, rellena y cubierta con ganache de chocolate. Perfecta para los amantes del chocolate."
-    },
-    {
+    "categoria": "Pasteles",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 200,
+    "descripcion": "Fina porción de torta de crocante de fresa, con capas suaves y el dulce sabor de las fresas frescas."
+  },
+  {
     "id": 4,
     "imagen": "/assets/tres_leches.png",
     "titulo": "Torta tres leches",
     "tipoPresentacion": "Porción",
     "precio": 6.5,
-     "categoria": "Pasteles",
-    "unidadMedida": "Kg","valorUnidadMedida": 1.5,
-     "descripcion": "Deliciosa torta de chocolate elaborada con cacao puro, rellena y cubierta con ganache de chocolate. Perfecta para los amantes del chocolate."
-    },   
-    {
+    "categoria": "Pasteles",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 250,
+    "descripcion": "Delicada porción de torta tres leches, esponjosa y empapada en la mezcla perfecta de leches. Un clásico irresistible."
+  },
+  {
     "id": 5,
     "imagen": "/assets/Empanadas.png",
     "titulo": "Empanada",
     "tipoPresentacion": "Unidad",
     "precio": 6.5,
-     "categoria": "Bocaditos",
-    "unidadMedida": "Kg","valorUnidadMedida": 1.5,
-     "descripcion": "Deliciosa torta de chocolate elaborada con cacao puro, rellena y cubierta con ganache de chocolate. Perfecta para los amantes del chocolate."
-    },  
-    {
+    "categoria": "Bocaditos",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 150,
+    "descripcion": "Crujiente empanada, rellena con un sabroso guiso, perfecta para un antojo a cualquier hora."
+  },
+  {
     "id": 6,
     "imagen": "/assets/Alfajor_chocolatado.png",
     "titulo": "Alfajor chocolatado",
     "tipoPresentacion": "Unidad",
     "precio": 6.5,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso alfajor relleno de dulce de leche, cubierto con chocolate y espolvoreado con coco rallado."
-    } 
-    ,
-    {"id": 7,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 80,
+    "descripcion": "Delicioso alfajor relleno de dulce de leche, cubierto con chocolate y espolvoreado con coco rallado. Un dulce placer."
+  },
+  {
+    "id": 7,
     "imagen": "/assets/Alfajor_corazon.png",
-    "titulo": "Alfajor corazon",
+    "titulo": "Alfajor corazón",
     "tipoPresentacion": "Unidad",
     "precio": 6,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Deliciosa torta de vainilla elaborada con vainilla natural, rellena y cubierta con crema de vainilla. Perfecta para los amantes de la vainilla."
-    }
-    ,
-    {"id": 8,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 70,
+    "descripcion": "Encantador alfajor en forma de corazón, con suave masa y dulce relleno, ideal para un detalle especial."
+  },
+  {
+    "id": 8,
     "imagen": "/assets/alfajor_mediano.png",
     "titulo": "Alfajor mediano",
     "tipoPresentacion": "Unidad",
     "precio": 5,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Deliciosa torta de vainilla elaborada con vainilla natural, rellena y cubierta con crema de vainilla. Perfecta para los amantes de la vainilla."
-    }
-    ,
-    {"id": 9,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 60,
+    "descripcion": "Clásico alfajor de tamaño mediano, con galleta suave y generoso relleno de manjar blanco."
+  },
+  {
+    "id": 9,
     "imagen": "/assets/alfajor_crocante.png",
     "titulo": "Alfajor crocante",
     "tipoPresentacion": "Unidad",
     "precio": 5,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Deliciosa torta de vainilla elaborada con vainilla natural, rellena y cubierta con crema de vainilla. Perfecta para los amantes de la vainilla."
-    }
-    ,
-    {"id": 10,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 75,
+    "descripcion": "Alfajor con un toque crocante, relleno de manjar blanco y cubierto con una capa crujiente."
+  },
+  {
+    "id": 10,
     "imagen": "/assets/arroz_leche.png",
     "titulo": "Arroz con leche",
     "tipoPresentacion": "Unidad",
     "precio": 9,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso arroz con leche, cremoso y con un toque de canela. Perfecto para los amantes de los postres tradicionales."
-    }
-    ,
-    {"id": 11,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 250,
+    "descripcion": "Delicioso arroz con leche, cremoso y con un toque de canela. Un postre tradicional que evoca el hogar."
+  },
+  {
+    "id": 11,
     "imagen": "/assets/Bavarols_guindones.png",
     "titulo": "Bavarols de guindones",
     "tipoPresentacion": "Porción",
     "precio": 11,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Deliciosa torta de vainilla elaborada con vainilla natural, rellena y cubierta con crema de vainilla. Perfecta para los amantes de la vainilla."
-    }
-    ,
-    {"id": 12,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 180,
+    "descripcion": "Fresca porción de bavaroise de guindones, suave y ligera, con el dulzor característico de esta fruta."
+  },
+  {
+    "id": 12,
     "imagen": "/assets/Besito_de_coco.png",
     "titulo": "Besito de coco",
     "tipoPresentacion": "Unidad",
     "precio": 3,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso besito de coco, suave y cremoso, cubierto con chocolate y espolvoreado con coco rallado."
-    },
-    {"id": 13,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 40,
+    "descripcion": "Pequeño y delicioso besito de coco, suave y con un intenso sabor tropical."
+  },
+  {
+    "id": 13,
     "imagen": "/assets/Brownie_cacao.png",
     "titulo": "Brownie de cacao",
     "tipoPresentacion": "Unidad",
     "precio": 9,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso brownie de cacao, suave y húmedo, cubierto con chocolate y espolvoreado con cacao en polvo."
-    },
-    {"id": 14,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 120,
+    "descripcion": "Intenso brownie de cacao, con una textura húmeda y trozos de chocolate, un festín para los amantes del cacao."
+  },
+  {
+    "id": 14,
     "imagen": "/assets/Budin_especial.png",
-    "titulo": "Budin especial",
+    "titulo": "Budín especial",
     "tipoPresentacion": "Porción",
     "precio": 9,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso budín de vainilla, suave y esponjoso, cubierto con un glaseado de chocolate."
-    },
-    {"id": 15,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 200,
+    "descripcion": "Porción de budín casero, esponjoso y lleno de sabor, ideal para acompañar con una taza de café."
+  },
+  {
+    "id": 15,
     "imagen": "/assets/Cheescake_maracuya.png",
-    "titulo": "Cheescake de maracuya",
+    "titulo": "Cheesecake de maracuyá",
     "tipoPresentacion": "Porción",
     "precio": 13,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso cheesecake de maracuyá, cremoso y con un toque ácido, perfecto para los amantes de los sabores frutales."
-    },
-    {"id": 16,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 220,
+    "descripcion": "Exquisita porción de cheesecake de maracuyá, cremoso y con el toque tropical y ácido de la fruta."
+  },
+  {
+    "id": 16,
     "imagen": "/assets/Cheescake_oreo.png",
-    "titulo": "Cheescake de oreo",
+    "titulo": "Cheesecake de Oreo",
     "tipoPresentacion": "Porción",
     "precio": 9,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso cheesecake de oreo, cremoso y con trozos de galleta, perfecto para los amantes del chocolate."
-    }
-    ,
-    {"id": 17,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 200,
+    "descripcion": "Irresistible porción de cheesecake de Oreo, con la cremosidad del queso y los trozos de tu galleta favorita."
+  },
+  {
+    "id": 17,
     "imagen": "/assets/Cheescake_brownie.png",
-    "titulo": "Cheescake de brownie",
+    "titulo": "Cheesecake de brownie",
     "tipoPresentacion": "Porción",
     "precio": 13,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso cheesecake de brownie, cremoso y con trozos de brownie, perfecto para los amantes del chocolate."
-    },
-    {"id": 18,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 230,
+    "descripcion": "Decadente porción de cheesecake con base de brownie, la combinación perfecta de cremosidad y sabor a chocolate intenso."
+  },
+  {
+    "id": 18,
     "imagen": "/assets/New_York_Cheesecake_frutos_rojos.png",
     "titulo": "New York Cheesecake frutos rojos",
     "tipoPresentacion": "Porción",
     "precio": 15,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso cheesecake de frutos rojos, cremoso y con una base de galleta, perfecto para los amantes de los sabores frutales."
-    }
-    ,
-    {"id": 19,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 240,
+    "descripcion": "Clásica porción de New York cheesecake con una generosa cubierta de salsa de frutos rojos."
+  },
+  {
+    "id": 19,
     "imagen": "/assets/copa_dulcinelly.png",
     "titulo": "Copa Dulcinelly",
     "tipoPresentacion": "Unidad",
     "precio": 13,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Deliciosa copa de mousse de chocolate, con una base de galleta y cubierta con crema batida."
-    },
-    {"id": 20,
+    "categoria": "Productos dulces",
+    "unidadMedida": "ml",
+    "valorUnidadMedida": 250,
+    "descripcion": "Exclusiva Copa Dulcinelly, un postre en capas con cremas, bizcocho y frutas, servido en una elegante copa."
+  },
+  {
+    "id": 20,
     "imagen": "/assets/Copa_moka.png",
     "titulo": "Copa moka",
     "tipoPresentacion": "Unidad",
     "precio": 13,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Deliciosa copa de mousse de chocolate, con una base de galleta y cubierta con crema batida."
-    }
-    ,
-    {"id": 21,
+    "categoria": "Productos dulces",
+    "unidadMedida": "ml",
+    "valorUnidadMedida": 250,
+    "descripcion": "Deliciosa copa moka, con capas de cremoso postre de café y chocolate, un capricho para el paladar."
+  },
+  {
+    "id": 21,
     "imagen": "/assets/Crema_volteada_Coco.png",
     "titulo": "Crema volteada de coco",
     "tipoPresentacion": "Porción",
     "precio": 11,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Deliciosa crema volteada de coco, suave y cremosa, perfecta para los amantes del coco."
-    },
-
-
-
-    {"id": 22,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 200,
+    "descripcion": "Suave porción de crema volteada de coco, con una textura sedosa y un sabor tropical exquisito."
+  },
+  {
+    "id": 22,
     "imagen": "/assets/Crocante_chirimoya.png",
     "titulo": "Crocante de chirimoya",
     "tipoPresentacion": "Porción",
     "precio": 13,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso crocante de chirimoya, con una base de galleta y cubierta con crema batida."
-    },
-
-
-
-
-    {"id": 23,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 200,
+    "descripcion": "Fresca porción de crocante de chirimoya, con la dulzura única de esta fruta y una base crujiente."
+  },
+  {
+    "id": 23,
     "imagen": "/assets/cupcake_nutella.png",
-    "titulo": "Cupcake nutella",
+    "titulo": "Cupcake Nutella",
     "tipoPresentacion": "Unidad",
     "precio": 11,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso cupcake de nutella, suave y esponjoso, cubierto con un glaseado de chocolate."
-    },
-    {"id": 25,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 100,
+    "descripcion": "Esponjoso cupcake con centro cremoso de Nutella y decorado con un suave glaseado."
+  },
+  {
+    "id": 25,
     "imagen": "/assets/Cupcake_marmoleado.png",
     "titulo": "Cupcake marmoleado",
     "tipoPresentacion": "Unidad",
     "precio": 7,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso cupcake marmoleado, suave y esponjoso, cubierto con un glaseado de chocolate."
-    },
-    {"id": 26,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 90,
+    "descripcion": "Clásico cupcake marmoleado, una mezcla de vainilla y chocolate en cada bocado, con una dulce cobertura."
+  },
+  {
+    "id": 26,
     "imagen": "/assets/Cupcake_beso_De_moza.png",
     "titulo": "Cupcake beso de moza",
     "tipoPresentacion": "Unidad",
     "precio": 7,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso cupcake beso de moza, suave y esponjoso, cubierto con un glaseado de chocolate."
-    },
-    {"id": 27,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 90,
+    "descripcion": "Delicioso cupcake inspirado en el tradicional beso de moza, con base de chocolate y suave malvavisco cubierto."
+  },
+  {
+    "id": 27,
     "imagen": "/assets/cupcake_tematico.png",
     "titulo": "Cupcake temático",
     "tipoPresentacion": "Unidad",
     "precio": 8,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso cupcake temático, suave y esponjoso, cubierto con un glaseado de chocolate."
-    },
-    {"id": 28,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 95,
+    "descripcion": "Cupcake personalizado con diseños temáticos, ideal para celebraciones y eventos especiales."
+  },
+  {
+    "id": 28,
     "imagen": "/assets/Eclair_de_caramelo.png",
-    "titulo": "Eclair de caramelo",
+    "titulo": "Éclair de caramelo",
     "tipoPresentacion": "Unidad",
     "precio": 9,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso eclair de caramelo, suave y esponjoso, cubierto con un glaseado de chocolate."
-    },
-    {"id": 29,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 80,
+    "descripcion": "Fino éclair relleno de crema pastelera de caramelo, cubierto con un glaseado brillante."
+  },
+  {
+    "id": 29,
     "imagen": "/assets/Eclair_con_ganache_de_chocolate.png",
-    "titulo": "Eclair con ganache de chocolate",
+    "titulo": "Éclair con ganache de chocolate",
     "tipoPresentacion": "Unidad",
     "precio": 9,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso eclair con ganache de chocolate, suave y esponjoso, cubierto con un glaseado de chocolate."
-    },
-
-    {"id": 30,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 85,
+    "descripcion": "Delicado éclair relleno de crema y cubierto con una rica ganache de chocolate, un clásico francés."
+  },
+  {
+    "id": 30,
     "imagen": "/assets/Opera.png",
-    "titulo": "Opera",
-    "tipoPresentacion": "Unidad",
+    "titulo": "Ópera",
+    "tipoPresentacion": "Porción",
     "precio": 15,
-     "categoria": "Postres boutique",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso eclair de chocolate, suave y esponjoso, cubierto con un glaseado de chocolate."
-    },
-    {"id": 31,
+    "categoria": "Postres boutique",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 180,
+    "descripcion": "Elegante porción de torta Ópera, con capas de bizcocho de almendras, café y ganache de chocolate. Una obra de arte."
+  },
+  {
+    "id": 31,
     "imagen": "/assets/tiramisu.png",
-    "titulo": "Amor de tiramisu",
+    "titulo": "Amor de tiramisú",
     "tipoPresentacion": "Porción",
     "precio": 17,
-     "categoria": "Postres boutique",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso tiramisu, suave y esponjoso, cubierto con un glaseado de chocolate."
-    },
-    {"id": 32,
+    "categoria": "Postres boutique",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 200,
+    "descripcion": "Delicada porción de tiramisú, con capas de bizcocho remojado en café, crema de mascarpone y cacao en polvo. Puro amor italiano."
+  },
+  {
+    "id": 32,
     "imagen": "/assets/Fraisier.png",
     "titulo": "Fraisier",
     "tipoPresentacion": "Porción",
     "precio": 17,
-     "categoria": "Postres boutique",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso fraisier, suave y esponjoso, cubierto con un glaseado de chocolate."
-    },
-    {"id": 33,
+    "categoria": "Postres boutique",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 200,
+    "descripcion": "Sofisticada porción de Fraisier, con crema mousseline y fresas frescas. Un postre francés que cautiva."
+  },
+  {
+    "id": 33,
     "imagen": "/assets/L'Amour.png",
     "titulo": "L'Amour",
     "tipoPresentacion": "Porción",
     "precio": 17,
-     "categoria": "Postres boutique",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso eclair de chocolate, suave y esponjoso, cubierto con un glaseado de chocolate."
-    },
-    {"id": 34,
+    "categoria": "Postres boutique",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 210,
+    "descripcion": "Exclusiva porción de L'Amour, un postre elegante y delicado con combinaciones de sabores únicas."
+  },
+  {
+    "id": 34,
     "imagen": "/assets/Mousse_queso_mandarina.png",
     "titulo": "Mousse de queso y mandarina",
     "tipoPresentacion": "Porción",
     "precio": 17,
-     "categoria": "Postres boutique",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso mousse de queso y mandarina, suave y esponjoso, cubierto con un glaseado de chocolate."
-    },
-    {"id": 35,
+    "categoria": "Postres boutique",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 180,
+    "descripcion": "Ligera porción de mousse de queso y mandarina, una combinación refrescante y cremosa con toques cítricos."
+  },
+  {
+    "id": 35,
     "imagen": "/assets/Tarta_chocoavellana.png",
     "titulo": "Tarta de chocoavellana",
     "tipoPresentacion": "Porción",
     "precio": 17,
-     "categoria": "Productos dulces",
-    "unidadMedida": "Kilogramo","valorUnidadMedida": 1.5,
-     "descripcion": "Deliciosa tarta de chocoavellana, suave y esponjosa, cubierta con un glaseado de chocolate."
-    }
-
-
-
-
-
-
-    ,
-    {"id": 36,
+    "categoria": "Productos dulces",
+    "unidadMedida": "gr",
+    "valorUnidadMedida": 220,
+    "descripcion": "Deliciosa porción de tarta de chocoavellana, con una base crujiente, crema de chocolate y avellanas tostadas."
+  },
+  {
+    "id": 36,
     "imagen": "/assets/Jugo_Tropical_Durazno.png",
     "titulo": "Jugo tropical (Durazno, mango, piña y maracuyá)",
-    "tipoPresentacion": "Porción",
+    "tipoPresentacion": "Vaso",
     "precio": 12,
-     "categoria": "Bebidas",
-    "unidadMedida": "Litro","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso jugo tropical, mezcla de durazno, mango, piña y maracuyá."
-    },
-    {"id": 37,
+    "categoria": "Bebidas",
+    "unidadMedida": "ml",
+    "valorUnidadMedida": 500,
+    "descripcion": "Refrescante jugo tropical, una explosión de sabores con durazno, mango, piña y maracuyá, perfecto para revitalizarte."
+  },
+  {
+    "id": 37,
     "imagen": "/assets/Jugo_mixto.png",
     "titulo": "Jugo mixto",
-    "tipoPresentacion": "Porción",
+    "tipoPresentacion": "Vaso",
     "precio": 12,
-     "categoria": "Bebidas",
-    "unidadMedida": "Litro","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso jugo mixto, mezcla de frutas tropicales."
-    },
-    {"id": 38,
+    "categoria": "Bebidas",
+    "unidadMedida": "ml",
+    "valorUnidadMedida": 500,
+    "descripcion": "Delicioso jugo mixto, una combinación de frutas frescas de temporada, ideal para cualquier momento del día."
+  },
+  {
+    "id": 38,
     "imagen": "/assets/Jugo_tuna.png",
     "titulo": "Jugo de tuna",
-    "tipoPresentacion": "Porción",
+    "tipoPresentacion": "Vaso",
     "precio": 12,
-     "categoria": "Bebidas",
-    "unidadMedida": "Litro","valorUnidadMedida": 1.5,
-     "descripcion": "Delicioso jugo de tuna, suave y refrescante."
-    }
-
+    "categoria": "Bebidas",
+    "unidadMedida": "ml",
+    "valorUnidadMedida": 500,
+    "descripcion": "Exótico jugo de tuna, con un sabor suave y refrescante, lleno de propiedades beneficiosas."
+  }
 ]

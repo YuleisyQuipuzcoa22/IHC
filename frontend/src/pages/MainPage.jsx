@@ -1,16 +1,14 @@
-
-import Carrusel from '../components/CarruselMain'
+import Carrusel from "../components/CarruselMain";
 import carrusel_1 from "../assets/carrusel_1.png";
 import carrusel_2 from "../assets/carrusel_2.png";
 import carrusel_3 from "../assets/carrusel_3.jpg";
 import carrusel_4 from "../assets/carrusel_4.jpg";
 import presentacion_personal from "../assets/presentacion_personal.jpg";
 import sedes from "../assets/sedes.png";
-import borde2 from '../assets/borde2.png';
-import bordeondas from '../assets/bordeondas.png';
+import borde2 from "../assets/borde2.png";
+import bordeondas from "../assets/bordeondas.png";
 import Dashboard from "../components/Dashboard";
-
-
+import Dboard_masvendidos from "../components/Dboard_masvendidos";
 
 const imagenesCarrusel = [
   { imagen: carrusel_1 },
@@ -19,60 +17,53 @@ const imagenesCarrusel = [
   { imagen: carrusel_4 },
 ];
 const frases = [
-  { color: "#E8464D",texto: "Con Dulcinelly, tus celebraciones saben mejor."},
-  { color: "#E8464D",texto: "Endulzamos tus momentos más especiales." },
-  { color: "#E8464D",texto: "Cada bocado es una historia hecha con amor." }, 
-  { color: "#E8464D",texto: "Descubre el placer de lo hecho en casa… con alma Dulcinelly" }, 
-  { color: "#E8464D",texto: "Pasteles que se ven tan bien como saben.." }, 
-   { color: "#E8464D",texto: "“Pasteles artesanales que despiertan sonrisas – Dulcinelly lo hace posible." }, 
+  { color: "#E8464D", texto: "Con Dulcinelly, tus celebraciones saben mejor." },
+  { color: "#E8464D", texto: "Endulzamos tus momentos más especiales." },
+  { color: "#E8464D", texto: "Cada bocado es una historia hecha con amor." },
+  {
+    color: "#E8464D",
+    texto: "Descubre el placer de lo hecho en casa… con alma Dulcinelly",
+  },
+  { color: "#E8464D", texto: "Pasteles que se ven tan bien como saben.." },
+  {
+    color: "#E8464D",
+    texto:
+      "“Pasteles artesanales que despiertan sonrisas – Dulcinelly lo hace posible.",
+  },
 ];
 
-
-
 function MainPage() {
-
   return (
-    <div>     
+    <div>
       <Carrusel
         diapositivas={imagenesCarrusel}
         autoAvance={true}
         intervaloAuto={4000}
-        tipoTransicion="fade"        
-        height="h-[600px]"        
-        
+        tipoTransicion="fade"
+        height="h-[650px]"
       />
+      <Dashboard />
       <div className="relative bg-[#E8464D] ">
         <img className="absolute top-0 left-0 w-full z-10   " src={borde2} />
         <Carrusel
-        diapositivas={frases}
-        autoAvance={true}
-        intervaloAuto={5000}
-        tipoTransicion="slide"
-        height="h-[300px]"
-        direccionSlide="y"
-        className="spicy-text text-4xl pt-3 border-b-5 border-[#f8b6ba] "
-        mostrarBarras= {false}
-        mostrarFlechas={false}
-        
-      />
-        <img className="absolute bottom-0 left-0 w-full z-10 " src={bordeondas} />
-      
+          diapositivas={frases}
+          autoAvance={true}
+          intervaloAuto={5000}
+          tipoTransicion="slide"
+          height="h-[300px]"
+          direccionSlide="y"
+          className="spicy-text text-4xl pt-3 border-b-5 border-[#f8b6ba] "
+          mostrarBarras={false}
+          mostrarFlechas={false}
+        />
+        <img
+          className="absolute bottom-0 left-0 w-full z-10 "
+          src={bordeondas}
+        />
       </div>
-
-      <div className=" flex flex-col bg-[#f8b6ba] h-80 justify-center items-center">
-         
-        <h1 className="lilita-text text-4xl">LOS MÁS VENDIDOS</h1>
-        <div className="flex space-x-5 ">
-          <div className=" h-50 w-50 bg-black">hola</div>
-        <div className=" h-50 w-50 bg-black">hola</div>
-        <div className=" h-50 w-50 bg-black">hola</div>
-        </div>
-        
+      <div>
+        <Dboard_masvendidos cantidad={4} />
       </div>
-
-
-
-
 
       <div className="px-6 sm:px-20 py-10 flex flex-col items-center bg-gradient-to-b from-[#f8b6ba] via-[#FFFFFF] to-[#FFFFFF]">
         <h1 className="spicy-text text-4xl sm:text-5xl text-black pb-5 text-center">
@@ -144,9 +135,6 @@ function MainPage() {
           </ul>
         </div>
       </div>
-
-      <Dashboard />
-
     </div>
   );
 }

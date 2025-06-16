@@ -46,6 +46,8 @@ function CatalogoProductos() {
                 imageUrl={product.imagen}
                 linkTo={`/producto/${product.id}`}
                 titulo={product.titulo}
+                unidadMedida={product.unidadMedida}
+                valorUnidadMedida={product.valorUnidadMedida}
                 precio={Number(product.precio).toFixed(2)}
                 tipoPresentacion={product.tipoPresentacion}
               />

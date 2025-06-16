@@ -6,7 +6,9 @@ const ProductoCarrito = ({
   id,
   imagen,
   titulo,
-  unidad,
+  tipoPresentacion,
+  unidadMedida,
+  valorUnidadMedida,
   cantidad,
   precio,
   enlaceProducto,
@@ -57,8 +59,8 @@ const ProductoCarrito = ({
           className="w-20 h-20 object-cover rounded-md"
         />
         <div>
-          <h2 className="font-bold uppercase">{titulo}</h2>
-          <p className="text-sm text-[#e8464d] font-semibold">{unidad}</p>
+          <h2 className="font-bold uppercase">{titulo} {valorUnidadMedida} {unidadMedida}</h2>
+          <p className="text-sm text-[#e8464d] font-semibold">{tipoPresentacion}</p>
         </div>
       </a>
 
