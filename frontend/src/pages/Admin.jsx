@@ -11,7 +11,7 @@ function Admin() {
         texto="Productos"
       />
       <CardMenu
-        imageUrl="https://www.esic.edu/sites/default/files/rethink/ff01cba7-marketing-y-ventas-roi.jpg"
+        imageUrl="https://www.salesforce.com/mx/blog/wp-content/uploads/sites/11/2023/09/reporte-de-ventas.jpg"
         linkTo="/dashboard_admin"
         texto="Dashboard's"
       />

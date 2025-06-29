@@ -36,12 +36,12 @@ function MainPage() {
   return (
     <div>
       <Carrusel
-        diapositivas={imagenesCarrusel}
-        autoAvance={true}
-        intervaloAuto={4000}
-        tipoTransicion="fade"
-        height="h-[650px]"
-      />
+  diapositivas={imagenesCarrusel}
+  autoAvance={true}
+  intervaloAuto={4000}
+  tipoTransicion="fade"
+  height="h-[250px] sm:h-[400px] md:h-[500px] lg:h-[650px]"
+/>
       <Dashboard />
       <div className="relative bg-[#E8464D] ">
         <img className="absolute top-0 left-0 w-full z-10   " src={borde2} />
@@ -138,5 +138,4 @@ function MainPage() {
     </div>
   );
 }
-
 export default MainPage;

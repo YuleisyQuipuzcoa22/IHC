@@ -63,7 +63,7 @@ function RegistrarCliente() {
   };
   const handleBlurDNI = (e, setFieldValue, values) => {
     const dniIngresado = e.target.value;
-    const usuarioExistente = buscarUsuarioPor( {DNI:dniIngresado});
+    const usuarioExistente = buscarUsuarioPor({ DNI: dniIngresado });
     console.log("DNI ingresado:", dniIngresado);
     console.log("Usuario encontrado:", usuarioExistente);
 
@@ -265,5 +265,4 @@ function RegistrarCliente() {
     </div>
   );
 }
-
 export default RegistrarCliente;

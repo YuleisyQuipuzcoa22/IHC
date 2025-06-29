@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 
@@ -15,7 +15,6 @@ const ProductoCarrito = ({
   onEliminar,
   actualizarCantidad,
 }) => {
-
   const incrementarCantidad = (e) => {
     e.stopPropagation();
     actualizarCantidad(id, cantidad + 1);
@@ -30,7 +29,6 @@ const ProductoCarrito = ({
   const eliminar = (e) => {
     e.stopPropagation();
     onEliminar(id);
-    console.log("eliminar producto");
   };
 
   return (
@@ -49,7 +47,7 @@ const ProductoCarrito = ({
       {/* Imagen y datos del producto */}
       <a
         href={enlaceProducto}
-        target="_black"
+        target="_blank"
         rel="noopener noreferrer"
         className="flex items-center cursor-pointer gap-4 flex-1"
       >
@@ -59,18 +57,17 @@ const ProductoCarrito = ({
           className="w-20 h-20 object-cover rounded-md"
         />
         <div>
-          <h2 className="font-bold uppercase">{titulo} {valorUnidadMedida} {unidadMedida}</h2>
-          <p className="text-sm text-[#e8464d] font-semibold">{tipoPresentacion}</p>
+          <h2 className="font-bold uppercase">
+            {titulo} {valorUnidadMedida} {unidadMedida}
+          </h2>
+          <p className="text-sm text-[#e8464d] font-semibold">
+            {tipoPresentacion}
+          </p>
         </div>
       </a>
 
       {/* Precio */}
-      <div
-        href={enlaceProducto}
-        target="blank"
-        rel="noopener noreferrer"
-        className=" w-auto text-right cursor-pointer "
-      >
+      <div className="w-auto text-right cursor-pointer">
         <p>Precio unitario</p>
         <p className="font-bold text-[#663d25]">S/. {precio.toFixed(2)}</p>
       </div>

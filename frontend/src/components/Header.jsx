@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Boton from "./Button";
 import logo from "../assets/logodulcinelly.png";
@@ -9,49 +9,46 @@ import {
   FaUser,
   FaShoppingBag,
   FaNetworkWired,
-} from "react-icons/fa"; //prueba
-
+} from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
-import { useState } from "react"; //prueba
-import LinkNavBurger from "./LinkNavBurger";
+import SidebarMenu from "./SidebarMenu";
 import { getTotalProductos } from "../utils//carrito";
 
 function Header() {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("usuarioLogueado"));
 
-  //prueba carrito
+  // Carrito
   const [totalProductos, setTotalProductos] = useState(getTotalProductos());
   useEffect(() => {
     const syncCarrito = () => setTotalProductos(getTotalProductos());
     window.addEventListener("storage", syncCarrito);
-    const interval = setInterval(syncCarrito, 500); // Opcional: refresca cada 0.5s
+    const interval = setInterval(syncCarrito, 500);
     return () => {
       window.removeEventListener("storage", syncCarrito);
       clearInterval(interval);
     };
   }, []);
 
-  //para el desplegable usuario
+  // Menú usuario
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  //usuario cliclea el desplegable usuario
   const toggleDropdown = () => {
     setDropdownOpen((prev) => {
-      if (!prev) setMobileMenuOpen(false); // Si lo estás abriendo (!prev), cierra el otro
+      if (!prev) setMobileMenuOpen(false);
       return !prev;
     });
   };
 
-  //menu hamburguesa
+  // Menú móvil
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const toggleMobileMenu = () => {
     setMobileMenuOpen((prev) => {
-      if (!prev) setDropdownOpen(false); // Si lo estás abriendo , cierra el otro
+      if (!prev) setDropdownOpen(false);
       return !prev;
     });
   };
-  //cuando submenú este abierto, al presionar en otro lado de la página se cerrará
+
+  // Cierra menús al hacer click fuera
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -82,9 +79,9 @@ function Header() {
           <img src={logo} alt="Logo" className="h-20 w-auto object-contain" />
         </Link>
 
-        {/* contenedor de todo menos logo */}
+        {/* Contenedor de todo menos logo */}
         <div className="flex items-center ml-5">
-          {/* enlaces pantalla normal */}
+          {/* Enlaces pantalla normal */}
           <div className="hidden md:flex space-x-6 mr-6">
             <LinkNavPrincipal to="/">INICIO</LinkNavPrincipal>
             <LinkNavPrincipal to="/catalogo-productos">
@@ -93,14 +90,10 @@ function Header() {
             <LinkNavPrincipal to="/contact">CONTÁCTANOS</LinkNavPrincipal>
           </div>
 
-          {/* icono carrito + usuario */}
+          {/* Icono carrito + usuario */}
           <div className="flex items-center space-x-7">
-            {/* PRUEBA:carrito*/}
-
             <Link to="/carrito" className="relative dropdown-user">
-              {/* Ícono de carrito */}
-              <FaShoppingCart className="text-2xl text-[#FFFFFF] hover:text-[#E8464D] " />
-              {/* Círculo del contador */}
+              <FaShoppingCart className="text-2xl text-[#FFFFFF] hover:text-[#E8464D]" />
               {totalProductos > 0 && (
                 <span className="absolute -top-2 -right-2 bg-[#F29FAD] text-[#663d25] text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                   {totalProductos}
@@ -110,7 +103,7 @@ function Header() {
 
             {/* Usuario */}
             {user ? (
-              <div className="relative  dropdown-user">
+              <div className="relative dropdown-user">
                 <button
                   onClick={toggleDropdown}
                   className="font-semibold flex items-center gap-2 px-4 py-2 rounded text-white hover:text-[#E2B891] focus:text-[#E2B891]"
@@ -185,7 +178,7 @@ function Header() {
                       onClick={handleLogout}
                       hoverColor="#000000"
                       hoverTextColor="#FFFFFF"
-                      className="font-semibold  w-full h-12 rounded-sm"
+                      className="font-semibold w-full h-12 rounded-sm"
                     />
                   </div>
                 )}
@@ -208,7 +201,7 @@ function Header() {
 
           {/* Botón hamburguesa (solo en móviles) */}
           <button
-            className="md:hidden pl-5  hamburger-menu"
+            className="md:hidden pl-5 hamburger-menu"
             onClick={toggleMobileMenu}
           >
             <FiMenu
@@ -221,26 +214,7 @@ function Header() {
           </button>
         </div>
 
-        {/* Menú móvil desplegable (solo los enlaces) */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden absolute z-50 top-full right-0 w-50 bg-[#663d25] py-0 space-y-2 h-auto flex flex-col shadow-lg">
-            <LinkNavBurger to="/" onClick={() => setMobileMenuOpen(false)}>
-              INICIO
-            </LinkNavBurger>
-            <LinkNavBurger
-              to="/producto"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              PRODUCTOS
-            </LinkNavBurger>
-            <LinkNavBurger
-              to="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              CONTÁCTANOS
-            </LinkNavBurger>
-          </div>
-        )}
+        <SidebarMenu open={isMobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
       </nav>
     </header>
   );

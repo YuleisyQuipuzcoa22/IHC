@@ -1,6 +1,3 @@
-
-
-
 // Obtener productos del carrito
 export const obtenerCarrito = () => {
   return JSON.parse(localStorage.getItem("carrito")) || [];
@@ -23,7 +20,6 @@ export const agregarProducto = (producto, cantidad = 1) => {
 const guardarCarrito = (carrito) => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
-
 
 // Eliminar producto
 export const eliminarProducto = (id) => {

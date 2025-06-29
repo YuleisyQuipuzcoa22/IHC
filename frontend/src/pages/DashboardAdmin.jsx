@@ -30,7 +30,7 @@ function obtenerEstadisticas() {
 
   // Generar datos para la gráfica de barras
   let ventasPorProducto = todosLosProductos.map((prod) => ({
-    nombre: prod.titulo +" " +prod.valorUnidadMedida + prod.unidadMedida,
+    nombre: prod.titulo + " " + prod.valorUnidadMedida + prod.unidadMedida,
     ventas: contador[prod.id] || 0,
   }));
 
@@ -58,7 +58,6 @@ function obtenerEstadisticas() {
 
   return { ventasPorProducto, totalVentas, dataCategorias };
 }
-
 const COLORS = [
   "#8884d8",
   "#82ca9d",
@@ -66,66 +65,70 @@ const COLORS = [
   "#ff7f50",
   "#a4de6c",
   "#d0ed57",
+  "#ff7300", // Añadimos más colores para evitar repeticiones si hay muchas categorías
+  "#3f6c8d",
+  "#8f3f8d",
+  "#8d7e3f",
 ];
 
 const DashboardAdmin = () => {
   const { ventasPorProducto, totalVentas, dataCategorias } =
     obtenerEstadisticas();
-
   return (
-    <div className="bg-gray-100 ">
-      <div className="bg-[#e2b891]/80 p-8 text-center border-b-5 border-dashed border-[#663d25] mb-8">
-        <h1 className="text-4xl font-bold text-[#663d25]">
+    <div className="bg-gray-100 min-h-screen">
+      <div className="bg-[#e2b891]/80 p-6 sm:p-8 text-center border-b-5 border-dashed border-[#663d25] mb-6 sm:mb-8">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#663d25] break-words">
           DASHBOARD DE VENTAS
         </h1>
       </div>
-      <div className="pl-20 pr-20 pb-15">
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-2">
+      {/* Contenedor principal con padding responsivo */}
+      <div className="p-4 sm:p-6 md:px-20 md:pb-15">
+        <div className="mb-6 sm:mb-8 text-center md:text-left">
+          <h2 className="text-lg sm:text-xl font-semibold mb-2 text-gray-800">
             Total de productos vendidos:{" "}
-            <span className="text-[#e8464d]">{totalVentas}</span>
+            <span className="text-[#e8464d] font-bold">{totalVentas}</span>
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Gráfica de barras: Ventas por producto */}
-          <div className="bg-white rounded-lg shadow p-4 text-center">
-            <h2 className="font-semibold mb-4 text-xl text-[#663D25]">
+        {/* Contenedor de las gráficas: apiladas en móvil/tableta, lado a lado en desktop */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
+          {/* Gráfica de barras: Top 10 productos más vendidos*/}
+          {/* Añadimos overflow-x-auto para el scroll horizontal en caso de etiquetas largas */}
+          <div className="bg-white rounded-lg shadow p-4 text-center overflow-x-auto w-full lg:w-1/2">
+            <h2 className="font-semibold mb-4 text-lg sm:text-xl text-[#663D25]">
               10 PRODUCTOS MÁS VENDIDOS
             </h2>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={ventasPorProducto}>
+            {/* El ResponsiveContainer se asegura de que el gráfico ocupe el 100% del ancho disponible */}
+            {/* Definimos un ancho fijo mínimo para el BarChart para forzar el scroll si es necesario */}
+            <ResponsiveContainer width="100%" minWidth={400} height={350}>
+              <BarChart data={ventasPorProducto} margin={{ top: 10, right: 0, left: 0, bottom: 50 }}>
                 <XAxis
                   dataKey="nombre"
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 11 }}
                   interval={0}
-                  angle={-20}
+                  angle={-30} // Ángulo un poco más pronunciado para texto más largo
                   textAnchor="end"
-                  height={90}                 
-                  label={{
-                    value: "Productos",
-                    position: "insideBottom",
-                    offset: -5,
-                    className: "text-lg font-semibold",
-                  }}
+                  height={80} // Altura de la XAxis para acomodar las etiquetas rotadas
                 />
                 <YAxis
                   label={{
                     value: "N° de ventas",
                     angle: -90,
-                    className: "text-lg font-semibold ",
+                    position: "insideLeft",
+                    className: "text-md font-semibold",
                   }}
                 />
-                <Tooltip />
+                <Tooltip cursor={{ fill: '#f0f0f0' }} /> {/* Fondo claro para el tooltip */}
                 <Bar dataKey="ventas" fill="#e8464d" />
               </BarChart>
             </ResponsiveContainer>
           </div>
+
           {/* Gráfica de pastel: Ventas por categoría */}
-          <div className="bg-white rounded-lg shadow p-4 text-center">
-            <h3 className="font-semibold mb-4 text-xl text-[#663D25]">
+          <div className="bg-white rounded-lg shadow p-4 text-center w-full lg:w-1/2">
+            <h3 className="font-semibold mb-4 text-lg sm:text-xl text-[#663D25]">
               VENTAS POR CATEGORÍA
             </h3>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={350}>
               <PieChart>
                 <Pie
                   data={dataCategorias}
@@ -135,7 +138,7 @@ const DashboardAdmin = () => {
                   cy="50%"
                   outerRadius={100}
                   fill="#8884d8"
-                  label
+                  label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`} // Muestra nombre y porcentaje
                 >
                   {dataCategorias.map((entry, index) => (
                     <Cell
@@ -144,8 +147,8 @@ const DashboardAdmin = () => {
                     />
                   ))}
                 </Pie>
-                <Tooltip />
-                <Legend />
+                <Tooltip formatter={(value) => `${value} unidades`} /> {/* Formato más amigable */}
+                <Legend layout="horizontal" align="center" verticalAlign="bottom" /> {/* Leyenda debajo y centrada */}
               </PieChart>
             </ResponsiveContainer>
           </div>

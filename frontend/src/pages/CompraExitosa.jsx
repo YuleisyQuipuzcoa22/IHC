@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 function CompraExitosa() {
   return (
     <div>
-      <div className="flex flex-col items-center justify-center min-h-[60vh] bg-white">
-        <img
+      <div className="flex flex-col items-center justify-center min-h-[60vh] bg-white text-center">
+        <img 
           src="/src/assets/check_verde.png"
           alt="Compra Exitosa"
           width={200}
           height={200}
-          className="mb-6" // Espacio debajo de la imagen
+          className="mb-6" 
         />
         <h1 className="text-4xl font-bold text-[#E8464D] mb-4">¡Gracias por tu compra!</h1>
         <small className="mb-3">Tu solicitud de compra fue recibida</small>

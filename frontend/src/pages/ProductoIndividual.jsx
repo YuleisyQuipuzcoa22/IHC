@@ -12,20 +12,20 @@ function ProductoIndividual() {
   const lensRef = useRef(null);
 
   useEffect(() => {
-  const productosGuardados =
-    JSON.parse(localStorage.getItem("productos")) || [];
-  // Busca en localStorage
-  let encontrado = productosGuardados.find(
-    (p) => p.id === id || p.id === parseInt(id)
-  );
-  // Si no lo encuentra, busca en los predefinidos
-  if (!encontrado) {
-    encontrado = productosPredefinidos.find(
+    const productosGuardados =
+      JSON.parse(localStorage.getItem("productos")) || [];
+    // Busca en localStorage
+    let encontrado = productosGuardados.find(
       (p) => p.id === id || p.id === parseInt(id)
     );
-  }
-  setProducto(encontrado);
-}, [id]);
+    // Si no lo encuentra, busca en los predefinidos
+    if (!encontrado) {
+      encontrado = productosPredefinidos.find(
+        (p) => p.id === id || p.id === parseInt(id)
+      );
+    }
+    setProducto(encontrado);
+  }, [id]);
   if (!producto) {
     return <p className="text center p-10">Producto no encontrado.</p>;
   }

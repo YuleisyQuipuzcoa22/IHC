@@ -25,14 +25,15 @@ function Contact() {
         },
         (error) => {
           console.error("Error al enviar el mensaje:", error);
-          alert("Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.");
+          alert(
+            "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde."
+          );
         }
       );
   };
 
   return (
     <div className="pt-24 pb-24 px-8 flex flex-col min-h-screen w-full bg-gradient-to-br from-[#fff7f0] via-[#ffe5e0] to-[#f9c7b6] items-center">
-      {/* Logo y texto centrados debajo del header */}
       <div className="flex flex-col items-center justify-center mb-12 mt-4 w-full">
         <img
           src={logo}
@@ -46,9 +47,8 @@ function Contact() {
           ¡Queremos saber de ti!
         </p>
       </div>
-      {/* Dos columnas con espacio considerable */}
+
       <div className="flex flex-col md:flex-row justify-center items-start w-full max-w-7xl gap-24 px-4">
-        {/* Columna izquierda: Información de contacto */}
         <div className="md:w-[38%] w-full flex flex-col items-center justify-center gap-8 p-10 z-10">
           {/* Ubicación */}
           <div className="flex flex-col items-center mb-4 w-full">
@@ -76,7 +76,9 @@ function Contact() {
             <div className="h-14 w-14 mb-2 bg-[#f9c7b6] rounded-full flex items-center justify-center shadow">
               <img src={horario} alt="horario" className="h-8 w-8" />
             </div>
-            <p className="text-[#C46C3C] font-bold text-xl text-center">Horario:</p>
+            <p className="text-[#C46C3C] font-bold text-xl text-center">
+              Horario:
+            </p>
             <p className="text-[#C46C3C] text-center text-lg">
               Lunes a viernes: 6:30am a 9:00pm
               <br />
@@ -88,7 +90,9 @@ function Contact() {
             <div className="h-14 w-14 mb-2 bg-[#f9c7b6] rounded-full flex items-center justify-center shadow">
               <img src={telefono} alt="teléfono" className="h-8 w-8" />
             </div>
-            <p className="text-[#C46C3C] font-bold text-xl text-center">Teléfono:</p>
+            <p className="text-[#C46C3C] font-bold text-xl text-center">
+              Teléfono:
+            </p>
             <p className="text-[#C46C3C] text-center text-lg">
               +51 986 358 682
             </p>
@@ -98,14 +102,14 @@ function Contact() {
             <div className="h-14 w-14 mb-2 bg-[#f9c7b6] rounded-full flex items-center justify-center shadow">
               <img src={correo} alt="correo" className="h-8 w-8" />
             </div>
-            <p className="text-[#C46C3C] font-bold text-xl text-center">Correo:</p>
+            <p className="text-[#C46C3C] font-bold text-xl text-center">
+              Correo:
+            </p>
             <p className="text-[#C46C3C] text-center text-lg break-all">
               Dulcinelly.@gmail.com
             </p>
           </div>
         </div>
-        {/* Espacio considerable entre columnas: gap-24 */}
-        {/* Columna derecha: Formulario */}
         <div className="md:w-[38%] w-full flex flex-col items-center justify-center z-10">
           <form
             ref={form}

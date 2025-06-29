@@ -83,7 +83,7 @@ const PaymentMethods = ({ getCheckoutForm }) => {
 
           <div>
             <button
-              className="font-bold bg-[#C46C3C] text-white py-3 px-50 rounded hover:bg-amber-700  transition duration-300 ease-in-out hover:scale-104 "
+              className="font-bold bg-[#C46C3C] text-white py-3 md:w-lg w-xs rounded hover:bg-amber-700  transition duration-300 ease-in-out hover:scale-104"
               onClick={handlePagar}
             >
               Pagar
@@ -91,7 +91,7 @@ const PaymentMethods = ({ getCheckoutForm }) => {
           </div>
 
           <button
-            className="border border-amber-900 text-amber-900 py-3 px-38 rounded hover:bg-[#E2B891] transition duration-300 ease-in-out hover:scale-104"
+            className="border border-amber-900 text-amber-900 py-3 md:w-lg w-xs rounded hover:bg-[#E2B891] transition duration-300 ease-in-out hover:scale-104"
             onClick={() => navigate("/catalogo-productos")}
           >
             Seguir comprando

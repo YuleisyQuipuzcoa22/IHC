@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
-import * as Yup from "yup"; // <-- Agrega Yup
+import * as Yup from "yup";
 import logo from "../assets/logodulcinelly.png";
 import Button from "../components/Button";
 import Input from "../components/Input";
@@ -21,7 +21,6 @@ const validationSchema = Yup.object({
 
 function Login() {
   const navigate = useNavigate();
-
   const initialValues = {
     correo: "",
     contraseña: "",
@@ -48,9 +47,6 @@ function Login() {
       switch (usuarioEncontrado.tipo_usuario) {
         case "admin":
           navigate("/admin");
-          break;
-        case "asistente":
-          navigate("/asistente");
           break;
         case "cliente":
           navigate("/");
@@ -93,7 +89,7 @@ function Login() {
 
           <Formik
             initialValues={initialValues}
-            validationSchema={validationSchema} // <-- Aplica Yup aquí
+            validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
             {({ handleChange, values, errors, touched }) => (
@@ -147,5 +143,4 @@ function Login() {
     </div>
   );
 }
-
 export default Login;
