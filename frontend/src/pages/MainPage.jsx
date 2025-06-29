@@ -36,12 +36,12 @@ function MainPage() {
   return (
     <div>
       <Carrusel
-  diapositivas={imagenesCarrusel}
-  autoAvance={true}
-  intervaloAuto={4000}
-  tipoTransicion="fade"
-  height="h-[250px] sm:h-[400px] md:h-[500px] lg:h-[650px]"
-/>
+        diapositivas={imagenesCarrusel}
+        autoAvance={true}
+        intervaloAuto={4000}
+        tipoTransicion="fade"
+        height="h-[250px] sm:h-[400px] md:h-[500px] lg:h-[650px]"
+      />
       <Dashboard />
       <div className="relative bg-[#E8464D] ">
         <img className="absolute top-0 left-0 w-full z-10   " src={borde2} />
@@ -119,22 +119,22 @@ function MainPage() {
       </div>
 
       <div
-        className="w-full h-142 bg-cover bg-center bg-no-repeat flex p-5 mb-5"
-        style={{ backgroundImage: `url(${sedes})` }}
-      >
-        <div className="flex flex-col items-center m-10 bg-white/60 h-auto w-100 rounded-br-4xl rounded-tl-4xl p-12 text-center ">
-          <h1 className=" lilita-text  text-3xl ">NUESTROS LOCALES </h1>
-          <h2 className="underline text-2xl">TRUJILLO</h2>
-          <ul className="text-lg font-medium text-left list-disc leading-relaxed pt-5">
-            <li>Los Diamantes 159. Santa Inés</li>
-            <li>Av. Larco 1266. Víctor Larco</li>
-            <li>Los Pinos 245. Huanchaco</li>
-            <li>Junín 497. Centro</li>
-            <li>El Golf</li>
-            <li>Mall Plaza</li>
-          </ul>
-        </div>
-      </div>
+  className="w-full min-h-[350px] h-auto bg-cover bg-center bg-no-repeat flex justify-center sm:justify-start items-center p-2 sm:p-5 mb-5"
+  style={{ backgroundImage: `url(${sedes})` }}
+>
+  <div className="flex flex-col items-center m-2 sm:m-10 bg-white/60 h-auto w-full max-w-xl rounded-br-3xl rounded-tl-3xl p-4 sm:p-12 text-center">
+    <h1 className="lilita-text text-2xl sm:text-3xl">NUESTROS LOCALES</h1>
+    <h2 className="underline text-xl sm:text-2xl">TRUJILLO</h2>
+    <ul className="text-base sm:text-lg font-medium text-left list-disc leading-relaxed pt-3 sm:pt-5 px-4">
+      <li>Los Diamantes 159. Santa Inés</li>
+      <li>Av. Larco 1266. Víctor Larco</li>
+      <li>Los Pinos 245. Huanchaco</li>
+      <li>Junín 497. Centro</li>
+      <li>El Golf</li>
+      <li>Mall Plaza</li>
+    </ul>
+  </div>
+</div>
     </div>
   );
 }
