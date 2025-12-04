@@ -52,10 +52,9 @@ src/
 │   ├── productos.json  # Catálogo base
 │   └── usuarios.json   # Usuarios precargados (Admin)
 ├── hooks/           # Custom Hooks (useContadorAnimado, useOnScreen)
-├── layout/          # Layouts (MainLayout vs AdminLayout)
 ├── pages/           # Vistas (Home, Catalogo, Checkout, DashboardAdmin)
 ├── utils/           # Estados globales (Zustand)
-│   ├── carrito.js      # Lógica del carrito
-│   ├── login_registro.js # Lógica de autenticación
-│   └── pedidos.js      # Historial de pedidos
+    ├── carrito.js      # Lógica del carrito
+    ├── login_registro.js # Lógica de autenticación
+    └── pedidos.js      # Historial de pedidos
 
