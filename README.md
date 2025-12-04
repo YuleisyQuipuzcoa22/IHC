@@ -61,11 +61,12 @@ src/
 ## 🚀 Instalación y Despliegue
 1. Clonar el repositorio
 ```text
-git clone [https://github.com/YuleisyQuipuzcoa22/IHC.git](https://github.com/YuleisyQuipuzcoa22/IHC.git)
-cd IHC
+gh repo clone YuleisyQuipuzcoa22/IHC
+(https://github.com/YuleisyQuipuzcoa22/IHC.git)
 ```
 2. Instalar las dependencias
 ```text
+cd frontend
 npm install
 npm install recharts
 ```
