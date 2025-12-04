@@ -8,7 +8,7 @@ Plataforma web interactiva desarrollada para la pastelería **Dulcinelly** (Truj
 
 ## 📹 Demo del Proyecto
 
-*(Aquí puedes poner un GIF de tu video navegando, o una captura de pantalla atractiva del Home)*
+**
 
 ## 🔑 Credenciales de Acceso (Demo)
 
