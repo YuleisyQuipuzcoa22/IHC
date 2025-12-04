@@ -6,9 +6,6 @@ Plataforma web interactiva desarrollada para la pastelería **Dulcinelly** (Truj
 
 > ⚠️ **Nota Técnica:** La persistencia de datos (usuarios, carrito, sesiones) se maneja localmente mediante **LocalStorage** y archivos JSON simulados. Si borras la caché del navegador, el estado se reiniciará.
 
-## 📹 Demo del Proyecto
-
-**
 
 ## 🔑 Credenciales de Acceso (Demo)
 
@@ -37,7 +34,7 @@ Para explorar todas las funcionalidades, incluyendo el **Dashboard Administrativ
 
 | Área | Tecnología | Uso en el proyecto |
 |------|------------|--------------------|
-| **Core** | React 18 + Vite | SPA rápida y optimizada |
+| **Core** | React 18 + Vite (JS) | SPA rápida y optimizada |
 | **Estilos** | Tailwind CSS v4 | Diseño responsivo y moderno |
 | **Estado** | Zustand | Manejo de carrito y sesión de usuario |
 | **UI Components** | Ant Design + React Icons | Elementos de interfaz y navegación |
@@ -57,8 +54,8 @@ src/
 ├── hooks/           # Custom Hooks (useContadorAnimado, useOnScreen)
 ├── layout/          # Layouts (MainLayout vs AdminLayout)
 ├── pages/           # Vistas (Home, Catalogo, Checkout, DashboardAdmin)
-├── store/           # Estados globales (Zustand)
+├── utils/           # Estados globales (Zustand)
 │   ├── carrito.js      # Lógica del carrito
 │   ├── login_registro.js # Lógica de autenticación
 │   └── pedidos.js      # Historial de pedidos
-└── utils/           # Helpers y formateadores de moneda
+
