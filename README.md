@@ -57,4 +57,25 @@ src/
     ├── carrito.js      # Lógica del carrito
     ├── login_registro.js # Lógica de autenticación
     └── pedidos.js      # Historial de pedidos
-
+```
+## 🚀 Instalación y Despliegue
+1. Clonar el repositorio
+```text
+git clone [https://github.com/YuleisyQuipuzcoa22/IHC.git](https://github.com/YuleisyQuipuzcoa22/IHC.git)
+cd IHC
+```
+2. Instalar las dependencias
+```text
+npm install
+npm install recharts
+```
+3. Ejecutar servidor de desarrollo
+```text
+npm run dev
+```
+7. Abrir en el navegador. Ingresa a
+```text
+http://localhost:5173
+```
+e inicia sesión con las credenciales de demo (administrador) o de lo contrario, regístrate como cliente.
+   
