@@ -1,5 +1,6 @@
 # 🧁 Dulcinelly - Experiencia UI/UX & E-commerce
 ![React](https://img.shields.io/badge/React-18.3-blue) ![Vite](https://img.shields.io/badge/Vite-6.3-purple) ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-4.1-cyan) ![Zustand](https://img.shields.io/badge/State-Zustand-bear)
+
 Plataforma web interactiva desarrollada para la pastelería **Dulcinelly** (Trujillo, Perú). Este proyecto es una implementación académica centrada en la **Interacción Humano-Computador (IHC)**, priorizando la experiencia de usuario, flujos de navegación intuitivos y simulación de procesos reales de E-commerce sin dependencia de backend.
 
 > ⚠️ **Nota Técnica:** La persistencia de datos (usuarios, carrito, sesiones) se maneja localmente mediante **LocalStorage** y archivos JSON simulados. Si borras la caché del navegador, el estado se reiniciará.
