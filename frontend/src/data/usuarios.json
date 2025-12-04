@@ -6,13 +6,5 @@
     "DNI": "78945612",
     "nombre": "Carlos",
     "tipo_usuario": "admin"
-  },
-  {
-    "idUsuario": 2,
-    "correo": "flavio@dulcinelly.com",
-    "contraseña": "asist123",
-    "DNI": "12345678",
-    "nombre": "Flavio",
-    "tipo_usuario": "asistente"
   }
 ]
