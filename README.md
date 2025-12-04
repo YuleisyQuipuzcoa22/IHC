@@ -63,6 +63,7 @@ src/
 ```text
 gh repo clone YuleisyQuipuzcoa22/IHC
 (https://github.com/YuleisyQuipuzcoa22/IHC.git)
+cd IHC
 ```
 2. Instalar las dependencias
 ```text
