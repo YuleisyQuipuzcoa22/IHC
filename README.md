@@ -60,7 +60,7 @@ src/
 ## 🚀 Instalación y Despliegue
 1. Clonar el repositorio
 ```text
-gh repo clone YuleisyQuipuzcoa22/IHC
+git clone https://github.com/YuleisyQuipuzcoa22/IHC.git
 (https://github.com/YuleisyQuipuzcoa22/IHC.git)
 cd IHC
 ```
